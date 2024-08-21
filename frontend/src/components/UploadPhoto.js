@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UploadPhoto = () => {
   const [image, setImage] = useState(null);
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -16,7 +18,13 @@ const UploadPhoto = () => {
       setImage(imageUrl);
     }
   };
-
+  const handleUpload = () => {
+    if (image) {
+      navigate("/questionnaire");
+    } else {
+      alert("Please upload an image before proceeding.");
+    }
+  };
   return (
     <div className="upload-container">
       <h2>Upload a Photo of Your Front Tongue</h2>
@@ -51,7 +59,9 @@ const UploadPhoto = () => {
           Select file +
         </label>
       </div>
-      <button className="upload-button">Upload</button>
+      <button className="upload-button" onClick={handleUpload}>
+        Upload
+      </button>
     </div>
   );
 };
