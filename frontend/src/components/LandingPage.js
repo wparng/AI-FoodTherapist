@@ -6,7 +6,9 @@ const LandingPage = () => {
     <div className="landing-page">
       <h1>AI Food Therapist</h1>
       <p>Personalized your dietary</p>
-      <button to="/upload-photo">Get Started</button>
+      <Link to="/upload-photo">
+        <button>Get Started</button>
+      </Link>
     </div>
   );
 };

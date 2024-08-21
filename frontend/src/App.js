@@ -10,7 +10,7 @@ function App() {
       <div className="app">
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/upload" element={<UploadPhoto />} />
+          <Route path="/upload-photo" element={<UploadPhoto />} />
         </Routes>
       </div>
     </Router>
