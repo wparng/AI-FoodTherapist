@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/upload-photo" element={<UploadPhoto />} />
-          <Route path="/questionnaire" component={Questionnaire} />
+          <Route path="/questionnaire" element={<Questionnaire />} />
         </Routes>
       </div>
     </Router>
