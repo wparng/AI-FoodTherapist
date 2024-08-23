@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const UploadPhoto = () => {
   const [image, setImage] = useState(null);
+  const [isUploaded, setIsUploaded] = useState(false);
   const navigate = useNavigate();
 
   const handleFileChange = (event) => {
@@ -16,6 +17,7 @@ const UploadPhoto = () => {
       }
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
+      setIsUploaded(true);
     }
   };
   const handleUpload = () => {
@@ -47,18 +49,19 @@ const UploadPhoto = () => {
           <img src={image} alt="Uploaded Tongue" className="uploaded-image" />
         </div>
       )}
-
-      <div className="file-upload">
-        <input
-          type="file"
-          id="file-input"
-          onChange={handleFileChange}
-          accept="image/*"
-        />
-        <label htmlFor="file-input" className="file-label">
-          Select file +
-        </label>
-      </div>
+      {!isUploaded && (
+        <div className="file-upload">
+          <input
+            type="file"
+            id="file-input"
+            onChange={handleFileChange}
+            accept="image/*"
+          />
+          <label htmlFor="file-input" className="file-label">
+            Select file +
+          </label>
+        </div>
+      )}
       <button className="upload-button" onClick={handleUpload}>
         Upload
       </button>
