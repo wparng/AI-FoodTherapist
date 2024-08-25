@@ -27,7 +27,6 @@ const Questionnaire = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Log the values
     console.log("Age:", age);
     console.log("Gender:", gender);
     console.log("Country:", country);
@@ -61,6 +60,7 @@ const Questionnaire = () => {
     { value: "low", label: "Low" },
     { value: "very_low", label: "Very Low" },
   ];
+
   const healthIssuesOptions = [
     { value: "fatigue", label: "Fatigue" },
     { value: "inflammation", label: "Inflammation" },
@@ -94,6 +94,7 @@ const Questionnaire = () => {
               value={ageOptions.find((option) => option.value === age)}
               onChange={(selectedOption) => setAge(selectedOption.value)}
               required
+              classNamePrefix="react-select"
             />
           </label>
 
@@ -104,6 +105,7 @@ const Questionnaire = () => {
               value={genderOptions.find((option) => option.value === gender)}
               onChange={(selectedOption) => setGender(selectedOption.value)}
               required
+              classNamePrefix="react-select"
             />
           </label>
 
@@ -113,6 +115,7 @@ const Questionnaire = () => {
               options={options}
               value={country}
               onChange={(value) => setCountry(value)}
+              classNamePrefix="react-select"
             />
           </label>
 
@@ -127,6 +130,7 @@ const Questionnaire = () => {
                 setEnergyLevel(selectedOption.value)
               }
               required
+              classNamePrefix="react-select"
             />
           </label>
 
@@ -138,6 +142,7 @@ const Questionnaire = () => {
               isMulti
               onChange={handleHealthIssuesChange}
               placeholder="Select health issues..."
+              classNamePrefix="react-select"
             />
           </label>
 
@@ -151,9 +156,9 @@ const Questionnaire = () => {
               value={healthGoalsOptions.filter((option) =>
                 healthGoals.includes(option.value)
               )}
+              classNamePrefix="react-select"
             />
           </label>
-
           <label>
             If you selected "Other", please specify:
             <input
@@ -170,9 +175,9 @@ const Questionnaire = () => {
               placeholder="Please specify"
             />
           </label>
-
           <label>
             7. Email:
+            <br />
             <input
               type="email"
               value={email}
