@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import Select from "react-select";
 import countryList from "react-select-country-list";
+import Modal from "./Modal";
 
 const Questionnaire = () => {
   const [age, setAge] = useState("");
@@ -12,6 +13,8 @@ const Questionnaire = () => {
   const [email, setEmail] = useState("");
   const [receiveUpdates, setReceiveUpdates] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   const options = useMemo(() => countryList().getData(), []);
 
   const handleHealthIssuesChange = (selectedOptions) => {
@@ -27,14 +30,27 @@ const Questionnaire = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Age:", age);
-    console.log("Gender:", gender);
-    console.log("Country:", country);
-    console.log("Energy Level:", energyLevel);
-    console.log("Health Issues:", healthIssues);
-    console.log("Health Goals:", healthGoals);
-    console.log("Email:", email);
-    console.log("Receive Updates:", receiveUpdates);
+
+    if (!age || !gender || !energyLevel || !email) {
+      setModalMessage("Please fill in all required fields.");
+      setShowModal(true);
+      return;
+    }
+
+    const submissionData = `
+      Age: ${age}
+      Gender: ${gender}
+      Country: ${country}
+      Energy Level: ${energyLevel}
+      Health Issues: ${healthIssues.join(", ")}
+      Health Goals: ${healthGoals.join(", ")}
+      Email: ${email}
+    `;
+
+    setModalMessage(
+      `Thank you for completing the questionnaire!\n\n${submissionData}`
+    );
+    setShowModal(true);
     setSubmitted(true);
   };
 
@@ -93,7 +109,6 @@ const Questionnaire = () => {
               options={ageOptions}
               value={ageOptions.find((option) => option.value === age)}
               onChange={(selectedOption) => setAge(selectedOption.value)}
-              required
               classNamePrefix="react-select"
             />
           </label>
@@ -104,7 +119,6 @@ const Questionnaire = () => {
               options={genderOptions}
               value={genderOptions.find((option) => option.value === gender)}
               onChange={(selectedOption) => setGender(selectedOption.value)}
-              required
               classNamePrefix="react-select"
             />
           </label>
@@ -129,7 +143,6 @@ const Questionnaire = () => {
               onChange={(selectedOption) =>
                 setEnergyLevel(selectedOption.value)
               }
-              required
               classNamePrefix="react-select"
             />
           </label>
@@ -182,7 +195,6 @@ const Questionnaire = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
           </label>
 
@@ -197,6 +209,9 @@ const Questionnaire = () => {
 
           <button type="submit">Submit</button>
         </form>
+      )}
+      {showModal && (
+        <Modal message={modalMessage} onClose={() => setShowModal(false)} />
       )}
     </div>
   );
