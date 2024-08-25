@@ -20,6 +20,7 @@ const UploadPhoto = () => {
       setIsUploaded(true);
     }
   };
+
   const handleUpload = () => {
     if (image) {
       navigate("/questionnaire");
@@ -27,6 +28,12 @@ const UploadPhoto = () => {
       alert("Please upload an image before proceeding.");
     }
   };
+
+  const handleDelete = () => {
+    setImage(null);
+    setIsUploaded(false);
+  };
+
   return (
     <div className="upload-container">
       <h2>Upload a Photo of Your Front Tongue</h2>
@@ -47,6 +54,9 @@ const UploadPhoto = () => {
       {image && (
         <div className="image-preview">
           <img src={image} alt="Uploaded Tongue" className="uploaded-image" />
+          <button className="delete-button" onClick={handleDelete}>
+            Delete Image
+          </button>
         </div>
       )}
       {!isUploaded && (
