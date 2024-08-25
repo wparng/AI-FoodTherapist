@@ -4,6 +4,7 @@
   align-items: center;
   padding: 2rem;
   background: linear-gradient(to bottom, #fef2e9 100%, #f9e2d2 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .content {
