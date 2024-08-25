@@ -13,6 +13,15 @@ const UploadPhoto = () => {
     const file = event.target.files[0];
     if (file) {
       const fileSizeInMB = file.size / (1024 * 1024);
+      const validImageTypes = ["image/jpeg", "image/png"];
+
+      if (!validImageTypes.includes(file.type)) {
+        setModalMessage(
+          "Invalid file format. Please upload an image (JPEG, PNG)."
+        );
+        setShowModal(true);
+        return;
+      }
 
       if (fileSizeInMB < 3) {
         setModalMessage(

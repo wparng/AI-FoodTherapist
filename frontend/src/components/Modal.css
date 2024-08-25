@@ -22,6 +22,8 @@
 
 .modal-content h2 {
   margin: 0 0 10px;
+  color: #ff912c;
+  text-transform: uppercase;
 }
 
 .modal-content button {
