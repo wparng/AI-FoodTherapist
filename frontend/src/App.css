@@ -102,11 +102,17 @@ input[type="text"]:focus {
 input[type="file"] {
   display: none;
 }
+
 .image-preview {
   margin: 20px 0;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
+}
+
+.image-container {
+  position: relative;
 }
 
 .uploaded-image {
@@ -114,6 +120,27 @@ input[type="file"] {
   height: auto;
   display: block;
 }
+
+.delete-button {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  background-color: #ffffffcc;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 10;
+  width: 36px;
+  color: #ff912c;
+  font-weight: 900;
+}
+
+.delete-button:hover {
+  background-color: #fbc02d;
+  color: #fef2e9;
+}
+
 .questionnaire p {
   text-align: center;
   font-size: 18px;

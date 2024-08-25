@@ -53,10 +53,12 @@ const UploadPhoto = () => {
 
       {image && (
         <div className="image-preview">
-          <img src={image} alt="Uploaded Tongue" className="uploaded-image" />
-          <button className="delete-button" onClick={handleDelete}>
-            Delete Image
-          </button>
+          <div className="image-container">
+            <img src={image} alt="Uploaded Tongue" className="uploaded-image" />
+            <button className="delete-button" onClick={handleDelete}>
+              X
+            </button>
+          </div>
         </div>
       )}
       {!isUploaded && (
