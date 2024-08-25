@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 
 const UploadPhoto = () => {
   const [image, setImage] = useState(null);
   const [isUploaded, setIsUploaded] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   const navigate = useNavigate();
 
   const handleFileChange = (event) => {
@@ -11,10 +14,20 @@ const UploadPhoto = () => {
     if (file) {
       const fileSizeInMB = file.size / (1024 * 1024);
 
-      if (fileSizeInMB < 3 || fileSizeInMB > 9) {
-        alert("Please upload a photo between 3 MB and 9 MB.");
+      if (fileSizeInMB < 3) {
+        setModalMessage(
+          "The file is too small. Please upload a photo larger than 3 MB."
+        );
+        setShowModal(true);
+        return;
+      } else if (fileSizeInMB > 9) {
+        setModalMessage(
+          "The file is too large. Please upload a photo smaller than 9 MB."
+        );
+        setShowModal(true);
         return;
       }
+
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
       setIsUploaded(true);
@@ -25,13 +38,18 @@ const UploadPhoto = () => {
     if (image) {
       navigate("/questionnaire");
     } else {
-      alert("Please upload an image before proceeding.");
+      setModalMessage("Please upload a photo before proceeding.");
+      setShowModal(true);
     }
   };
 
   const handleDelete = () => {
     setImage(null);
     setIsUploaded(false);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -46,7 +64,7 @@ const UploadPhoto = () => {
         <img />
       </div>
       <p className="note">
-        **Please upload photos between 3–9 MB for best results. <br />
+        **Please upload photos between 3–9 MB for the best results. <br />
         **Photo quality affects analysis accuracy. The photo is only used for
         analysis and not stored.
       </p>
@@ -77,6 +95,7 @@ const UploadPhoto = () => {
       <button className="upload-button" onClick={handleUpload}>
         Upload
       </button>
+      {showModal && <Modal message={modalMessage} onClose={handleCloseModal} />}
     </div>
   );
 };
