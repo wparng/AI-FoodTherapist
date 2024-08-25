@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Modal from "./Modal";
 
 const PermissionRequest = () => {
   const [photoAccess, setPhotoAccess] = useState(false);
   const [photoAnalysis, setPhotoAnalysis] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const isEligibleForNavigation = photoAccess && photoAnalysis;
+
+  const handleConfirm = () => {
+    if (!isEligibleForNavigation) {
+      setShowModal(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="app permission">
@@ -28,10 +40,9 @@ const PermissionRequest = () => {
         </li>
       </ul>
       <p>
-        <strong>Your Privacy Matters:</strong> Any photos accessed or analyzed
-        will be handled securely and used only for the purposes outlined above.
-        Your data will never be shared with third parties without your explicit
-        consent.
+        Your Privacy Matters: Any photos accessed or analyzed will be handled
+        securely and used only for the purposes outlined above. Your data will
+        never be shared with third parties without your explicit consent.
       </p>
       <div className="checkbox-container">
         <label>
@@ -51,16 +62,21 @@ const PermissionRequest = () => {
           I consent to the analysis of my photos as described.
         </label>
       </div>
-      {isEligibleForNavigation ? (
-        <Link to="/upload-photo">
-          <button>Confirm</button>
-        </Link>
-      ) : (
-        <button
-          onClick={() => alert("Please grant the necessary permissions.")}
-        >
-          Confirm
-        </button>
+      <div>
+        {isEligibleForNavigation ? (
+          <Link to="/upload-photo">
+            <button>Confirm</button>
+          </Link>
+        ) : (
+          <button onClick={handleConfirm}>Confirm</button>
+        )}
+      </div>
+
+      {showModal && (
+        <Modal
+          message="Please grant the necessary permissions."
+          onClose={handleCloseModal}
+        />
       )}
     </div>
   );

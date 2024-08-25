@@ -29,12 +29,15 @@ button {
 }
 
 button:hover {
-  background-color: #ffb700;
+  background-color: #ff912c;
+  color: #fff;
+  font-weight: bold;
+  border: none;
 }
 
 label {
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-weight: 500;
 }
 
@@ -149,12 +152,13 @@ input[type="file"] {
   cursor: pointer;
   z-index: 10;
   width: 36px;
-  color: #ff912c;
+  color: #fbc02d;
   font-weight: 900;
 }
 
-.delete-button:hover {
-  background-color: #fbc02d;
+.delete-button:hover,
+.delete-button:active {
+  background-color: #ff912c;
   color: #fef2e9;
 }
 
