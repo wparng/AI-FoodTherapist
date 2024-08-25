@@ -52,7 +52,7 @@ const FoodDetails = () => {
   if (!itemData) return <p>No data available</p>;
 
   return (
-    <div className="p-4">
+    <div className="app p-4">
       <div className="flex items-center mb-4">
         <div onClick={handleBack} className="cursor-pointer p-2">
           <img

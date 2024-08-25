@@ -10,9 +10,9 @@ import FoodDetails from "./components/recommendation/FoodDetail";
 function App() {
   return (
     <Router>
-      <div className="app">
+      <div>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" exact element={<LandingPage />} />
           <Route path="/upload-photo" element={<UploadPhoto />} />
           <Route path="/questionnaire" element={<Questionnaire />} />
           <Route path="/recommendation" element={<Recommendation />} />

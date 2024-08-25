@@ -50,7 +50,7 @@ const Recommendation = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="p-4">
+    <div className="app p-4">
       <div className="flex items-center mb-4">
         <div onClick={handleBack} className="cursor-pointer p-2">
           <img

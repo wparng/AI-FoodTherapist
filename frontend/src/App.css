@@ -18,7 +18,6 @@ h2 {
 button {
   width: 100%;
   padding: 10px;
-  /* background-color: #f0f0f0; */
   background-color: #fbc02d;
   border: 1px solid #111;
   border-radius: 50px;
@@ -52,10 +51,6 @@ select:focus,
 input[type="text"]:focus {
   border-color: #4a90e2;
   outline: none;
-}
-.landing-page h1 {
-  color: #ff912c;
-  margin-bottom: 20px;
 }
 
 .instructions {

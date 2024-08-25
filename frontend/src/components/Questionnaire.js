@@ -59,7 +59,7 @@ const Questionnaire = () => {
   ];
 
   return (
-    <div className="questionnaire">
+    <div className="app questionnaire">
       <h1>Questionnaire</h1>
       {submitted ? (
         <p>Thank you for completing the questionnaire!</p>
