@@ -39,6 +39,28 @@ const Questionnaire = () => {
     setSubmitted(true);
   };
 
+  const ageOptions = [
+    { value: "18-25", label: "18 - 25" },
+    { value: "26-35", label: "26 - 35" },
+    { value: "36-45", label: "36 - 45" },
+    { value: "46-55", label: "46 - 55" },
+    { value: "56-65", label: "56 - 65" },
+    { value: "66-above", label: "66 and above" },
+  ];
+
+  const genderOptions = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "prefer_not_to_say", label: "Prefer not to say" },
+  ];
+
+  const energyLevelOptions = [
+    { value: "very_high", label: "Very High" },
+    { value: "high", label: "High" },
+    { value: "moderate", label: "Moderate" },
+    { value: "low", label: "Low" },
+    { value: "very_low", label: "Very Low" },
+  ];
   const healthIssuesOptions = [
     { value: "fatigue", label: "Fatigue" },
     { value: "inflammation", label: "Inflammation" },
@@ -67,33 +89,22 @@ const Questionnaire = () => {
         <form onSubmit={handleSubmit}>
           <label>
             1. Please select your age:
-            <select
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
+            <Select
+              options={ageOptions}
+              value={ageOptions.find((option) => option.value === age)}
+              onChange={(selectedOption) => setAge(selectedOption.value)}
               required
-            >
-              <option value="">Select...</option>
-              <option value="18-25">18 - 25</option>
-              <option value="26-35">26 - 35</option>
-              <option value="36-45">36 - 45</option>
-              <option value="46-55">46 - 55</option>
-              <option value="56-65">56 - 65</option>
-              <option value="66-above">66 and above</option>
-            </select>
+            />
           </label>
 
           <label>
             2. Please select your gender:
-            <select
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
+            <Select
+              options={genderOptions}
+              value={genderOptions.find((option) => option.value === gender)}
+              onChange={(selectedOption) => setGender(selectedOption.value)}
               required
-            >
-              <option value="">Select...</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="prefer_not_to_say">Prefer not to say</option>
-            </select>
+            />
           </label>
 
           <label>
@@ -107,18 +118,16 @@ const Questionnaire = () => {
 
           <label>
             4. How would you describe your current energy levels? (1-5)
-            <select
-              value={energyLevel}
-              onChange={(e) => setEnergyLevel(e.target.value)}
+            <Select
+              options={energyLevelOptions}
+              value={energyLevelOptions.find(
+                (option) => option.value === energyLevel
+              )}
+              onChange={(selectedOption) =>
+                setEnergyLevel(selectedOption.value)
+              }
               required
-            >
-              <option value="">Select...</option>
-              <option value="very_high">Very High</option>
-              <option value="high">High</option>
-              <option value="moderate">Moderate</option>
-              <option value="low">Low</option>
-              <option value="very_low">Very Low</option>
-            </select>
+            />
           </label>
 
           <label>
