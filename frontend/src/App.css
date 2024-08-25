@@ -14,6 +14,7 @@ h1 {
 h2 {
   text-align: center;
   color: #333;
+  font-weight: bold;
 }
 button {
   width: 100%;
@@ -51,6 +52,22 @@ select:focus,
 input[type="text"]:focus {
   border-color: #4a90e2;
   outline: none;
+}
+
+.permission ul {
+  margin-top: 10px;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.permission li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.checkbox-container {
+  margin: 20px 0;
 }
 
 .instructions {

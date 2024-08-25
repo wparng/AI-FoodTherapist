@@ -12,7 +12,7 @@ const LandingPage = () => {
           Get personalized dietary recommendations based on Traditional Chinese
           Medicine principles—all in just a few clicks.
         </p>
-        <Link to="/upload-photo">
+        <Link to="/permission-request">
           <button>Try It Now</button>
         </Link>
       </div>

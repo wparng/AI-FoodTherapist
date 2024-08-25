@@ -6,6 +6,7 @@ import Questionnaire from "./components/Questionnaire";
 import "./App.css";
 import Recommendation from "./components/recommendation/Recommendation";
 import FoodDetails from "./components/recommendation/FoodDetail";
+import PermissionRequest from "./components/PermissionRequest";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" exact element={<LandingPage />} />
+          <Route path="/permission-request" element={<PermissionRequest />} />
           <Route path="/upload-photo" element={<UploadPhoto />} />
           <Route path="/questionnaire" element={<Questionnaire />} />
           <Route path="/recommendation" element={<Recommendation />} />
