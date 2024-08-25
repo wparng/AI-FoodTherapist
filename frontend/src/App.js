@@ -5,7 +5,6 @@ import UploadPhoto from "./components/UploadPhoto";
 import Questionnaire from "./components/Questionnaire";
 import "./App.css";
 import Recommendation from "./components/recommendation/Recommendation";
-import FoodDetail from "./components/recommendation/FoodDetail";
 import FoodDetails from "./components/recommendation/FoodDetail";
 
 function App() {

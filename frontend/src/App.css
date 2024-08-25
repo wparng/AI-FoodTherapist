@@ -6,6 +6,11 @@
   margin: auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: clamp(1.5rem, 5vw, 1.75rem);
+}
 h2 {
   text-align: center;
   color: #333;
@@ -47,6 +52,10 @@ select:focus,
 input[type="text"]:focus {
   border-color: #4a90e2;
   outline: none;
+}
+.landing-page h1 {
+  color: #ff912c;
+  margin-bottom: 20px;
 }
 
 .instructions {

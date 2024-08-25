@@ -19,6 +19,9 @@ const Questionnaire = () => {
   };
 
   const handleHealthGoalsChange = (selectedOptions) => {
+    if (selectedOptions.length > 3) {
+      selectedOptions = selectedOptions.slice(0, 3);
+    }
     setHealthGoals(selectedOptions.map((option) => option.value));
   };
 
@@ -57,7 +60,7 @@ const Questionnaire = () => {
 
   return (
     <div className="questionnaire">
-      <h2>Questionnaire</h2>
+      <h1>Questionnaire</h1>
       {submitted ? (
         <p>Thank you for completing the questionnaire!</p>
       ) : (
@@ -136,6 +139,9 @@ const Questionnaire = () => {
               isMulti
               onChange={handleHealthGoalsChange}
               placeholder="Select health goals..."
+              value={healthGoalsOptions.filter((option) =>
+                healthGoals.includes(option.value)
+              )}
             />
           </label>
 

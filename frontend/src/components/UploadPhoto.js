@@ -36,7 +36,7 @@ const UploadPhoto = () => {
 
   return (
     <div className="upload-container">
-      <h2>Upload a Photo of Your Front Tongue</h2>
+      <h1>Upload a Photo of Your Front Tongue</h1>
       <div className="instructions">
         <p>Follow the instructions for the best results</p>
         <img />
