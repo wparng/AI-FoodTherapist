@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   padding: 2rem;
-  background-color: #f7f1e3;
+  background: linear-gradient(to bottom, #fef2e9 100%, #f9e2d2 100%);
 }
 
 .content {
