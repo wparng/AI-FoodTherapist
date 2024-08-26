@@ -74,6 +74,7 @@ const PermissionRequest = () => {
 
       {showModal && (
         <Modal
+          heading="Warning"
           message="Please grant the necessary permissions."
           onClose={handleCloseModal}
         />

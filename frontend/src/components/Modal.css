@@ -18,12 +18,22 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .modal-content h2 {
   margin: 0 0 10px;
   color: #ff912c;
   text-transform: uppercase;
+}
+
+.modal-content pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 60vh;
+  overflow-y: auto;
+  margin: 10px 0;
 }
 
 .modal-content button {

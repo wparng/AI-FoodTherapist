@@ -104,7 +104,13 @@ const UploadPhoto = () => {
       <button className="upload-button" onClick={handleUpload}>
         Upload
       </button>
-      {showModal && <Modal message={modalMessage} onClose={handleCloseModal} />}
+      {showModal && (
+        <Modal
+          heading="Warning"
+          message={modalMessage}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };

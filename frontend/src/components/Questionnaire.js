@@ -14,6 +14,7 @@ const Questionnaire = () => {
   const [email, setEmail] = useState("");
   const [receiveUpdates, setReceiveUpdates] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [modalHeading, setModalHeading] = useState("Warning");
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const options = useMemo(() => countryList().getData(), []);
@@ -58,9 +59,8 @@ const Questionnaire = () => {
       Email: ${email}
     `;
 
-    setModalMessage(
-      `Thank you for completing the questionnaire!\n\n${submissionData}`
-    );
+    setModalMessage(submissionData);
+    setModalHeading("Submission Info");
     setShowModal(true);
     setSubmitted(true);
   };
@@ -222,7 +222,11 @@ const Questionnaire = () => {
         </form>
       )}
       {showModal && (
-        <Modal message={modalMessage} onClose={() => setShowModal(false)} />
+        <Modal
+          heading={modalHeading}
+          message={modalMessage}
+          onClose={() => setShowModal(false)}
+        />
       )}
     </div>
   );
