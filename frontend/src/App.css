@@ -51,7 +51,7 @@ input[type="email"] {
   border-radius: 10px;
   font-size: 16px;
 }
-
+/* Permission Page*/
 .permission ul {
   margin-top: 10px;
   list-style-type: disc;
@@ -67,7 +67,7 @@ input[type="email"] {
 .checkbox-container {
   margin: 20px 0;
 }
-
+/* Upload Photo Page*/
 .instructions {
   font-size: 16px;
   color: #333;
@@ -157,7 +157,7 @@ input[type="file"] {
   color: #fef2e9;
 }
 
-/* Questionnaire */
+/* Questionnaire Page*/
 .questionnaire p {
   text-align: center;
   font-size: 18px;
