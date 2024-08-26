@@ -38,7 +38,7 @@ const Questionnaire = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!age || !gender || !energyLevel || !email) {
+    if (!age || !gender || !country || !energyLevel || !email) {
       setModalMessage("Please fill in all required fields.");
       setShowModal(true);
       return;
@@ -138,8 +138,8 @@ const Questionnaire = () => {
             3. What is your country?
             <Select
               options={options}
-              value={country}
-              onChange={(value) => setCountry(value)}
+              value={options.find((option) => option.value === country)}
+              onChange={(selectedOption) => setCountry(selectedOption.value)}
               classNamePrefix="react-select"
             />
           </label>
