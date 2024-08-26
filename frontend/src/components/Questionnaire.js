@@ -24,12 +24,15 @@ const Questionnaire = () => {
 
   const handleHealthGoalsChange = (selectedOptions) => {
     if (selectedOptions.length > 3) {
-      selectedOptions = selectedOptions.slice(0, 3);
+      setModalMessage("You can only select up to three health goals.");
+      setShowModal(true);
+      return;
     }
-    setHealthGoals(selectedOptions.map((option) => option.value));
+
     if (!selectedOptions.some((option) => option.value === "other")) {
       setOtherHealthGoal("");
     }
+    setHealthGoals(selectedOptions.map((option) => option.value));
   };
 
   const handleSubmit = (e) => {
