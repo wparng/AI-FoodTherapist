@@ -10,6 +10,7 @@ const Questionnaire = () => {
   const [energyLevel, setEnergyLevel] = useState("");
   const [healthIssues, setHealthIssues] = useState([]);
   const [healthGoals, setHealthGoals] = useState([]);
+  const [otherHealthGoal, setOtherHealthGoal] = useState("");
   const [email, setEmail] = useState("");
   const [receiveUpdates, setReceiveUpdates] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -26,6 +27,9 @@ const Questionnaire = () => {
       selectedOptions = selectedOptions.slice(0, 3);
     }
     setHealthGoals(selectedOptions.map((option) => option.value));
+    if (!selectedOptions.some((option) => option.value === "other")) {
+      setOtherHealthGoal("");
+    }
   };
 
   const handleSubmit = (e) => {
@@ -36,7 +40,11 @@ const Questionnaire = () => {
       setShowModal(true);
       return;
     }
-
+    if (healthGoals.includes("other") && otherHealthGoal.trim() === "") {
+      setModalMessage('Please specify your "Other" health goal.');
+      setShowModal(true);
+      return;
+    }
     const submissionData = `
       Age: ${age}
       Gender: ${gender}
