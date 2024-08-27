@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+import tongueImage from "../images/tongue.jpg";
 
 const UploadPhoto = () => {
   const [image, setImage] = useState(null);
@@ -66,11 +67,11 @@ const UploadPhoto = () => {
       <h1>Upload a Photo of Your Front Tongue</h1>
       <div className="instructions">
         <p>Follow the instructions for the best results</p>
-        <img />
+        <img src={tongueImage} alt="Tongue" />
         <p>
           Position your tongue in the center of the image for the best photo
         </p>
-        <img />
+        <img src={tongueImage} alt="Tongue" />
       </div>
       <p className="note">
         **Please upload photos between 3–9 MB for the best results. <br />
