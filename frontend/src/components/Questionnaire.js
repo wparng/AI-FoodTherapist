@@ -2,6 +2,8 @@ import React, { useState, useMemo } from "react";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import Modal from "./Modal";
+import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Questionnaire = () => {
   const [age, setAge] = useState("");
@@ -113,113 +115,121 @@ const Questionnaire = () => {
       {submitted ? (
         <p>Thank you for completing the questionnaire!</p>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <label>
-            1. Please select your age:
-            <Select
-              options={ageOptions}
-              value={ageOptions.find((option) => option.value === age)}
-              onChange={(selectedOption) => setAge(selectedOption.value)}
-              classNamePrefix="react-select"
-            />
-          </label>
+        <>
+          <Link
+            to="/upload-photo"
+            style={{ display: "inline-block", marginBottom: "20px" }}
+          >
+            <FaArrowLeft />
+          </Link>
+          <form onSubmit={handleSubmit}>
+            <label>
+              1. Please select your age:
+              <Select
+                options={ageOptions}
+                value={ageOptions.find((option) => option.value === age)}
+                onChange={(selectedOption) => setAge(selectedOption.value)}
+                classNamePrefix="react-select"
+              />
+            </label>
 
-          <label>
-            2. Please select your gender:
-            <Select
-              options={genderOptions}
-              value={genderOptions.find((option) => option.value === gender)}
-              onChange={(selectedOption) => setGender(selectedOption.value)}
-              classNamePrefix="react-select"
-            />
-          </label>
+            <label>
+              2. Please select your gender:
+              <Select
+                options={genderOptions}
+                value={genderOptions.find((option) => option.value === gender)}
+                onChange={(selectedOption) => setGender(selectedOption.value)}
+                classNamePrefix="react-select"
+              />
+            </label>
 
-          <label>
-            3. What is your country?
-            <Select
-              options={options}
-              value={options.find((option) => option.value === country)}
-              onChange={(selectedOption) => setCountry(selectedOption.value)}
-              classNamePrefix="react-select"
-            />
-          </label>
+            <label>
+              3. What is your country?
+              <Select
+                options={options}
+                value={options.find((option) => option.value === country)}
+                onChange={(selectedOption) => setCountry(selectedOption.value)}
+                classNamePrefix="react-select"
+              />
+            </label>
 
-          <label>
-            4. How would you describe your current energy levels? (1-5)
-            <Select
-              options={energyLevelOptions}
-              value={energyLevelOptions.find(
-                (option) => option.value === energyLevel
-              )}
-              onChange={(selectedOption) =>
-                setEnergyLevel(selectedOption.value)
-              }
-              classNamePrefix="react-select"
-            />
-          </label>
-
-          <label>
-            5. Do you often experience any of the following? (Select all that
-            apply)
-            <Select
-              options={healthIssuesOptions}
-              isMulti
-              onChange={handleHealthIssuesChange}
-              placeholder="Select health issues..."
-              classNamePrefix="react-select"
-            />
-          </label>
-
-          <label>
-            6. What are your primary health goals? (Select up to three)
-            <Select
-              options={healthGoalsOptions}
-              isMulti
-              onChange={handleHealthGoalsChange}
-              placeholder="Select health goals..."
-              value={healthGoalsOptions.filter((option) =>
-                healthGoals.includes(option.value)
-              )}
-              classNamePrefix="react-select"
-            />
-          </label>
-          <label>
-            If you selected "Other", please specify:
-            <input
-              type="text"
-              value={healthGoals.includes("other") ? "" : ""}
-              onChange={(e) => {
-                if (healthGoals.includes("other")) {
-                  setHealthGoals([
-                    ...healthGoals.filter((goal) => goal !== "other"),
-                    e.target.value,
-                  ]);
+            <label>
+              4. How would you describe your current energy levels? (1-5)
+              <Select
+                options={energyLevelOptions}
+                value={energyLevelOptions.find(
+                  (option) => option.value === energyLevel
+                )}
+                onChange={(selectedOption) =>
+                  setEnergyLevel(selectedOption.value)
                 }
-              }}
-              placeholder="Please specify"
-            />
-          </label>
-          <label>
-            7. Email:
-            <br />
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
+                classNamePrefix="react-select"
+              />
+            </label>
 
-          <label>
-            <input
-              type="checkbox"
-              checked={receiveUpdates}
-              onChange={() => setReceiveUpdates(!receiveUpdates)}
-            />
-            I’d like to receive new feature updates!
-          </label>
+            <label>
+              5. Do you often experience any of the following? (Select all that
+              apply)
+              <Select
+                options={healthIssuesOptions}
+                isMulti
+                onChange={handleHealthIssuesChange}
+                placeholder="Select health issues..."
+                classNamePrefix="react-select"
+              />
+            </label>
 
-          <button type="submit">Submit</button>
-        </form>
+            <label>
+              6. What are your primary health goals? (Select up to three)
+              <Select
+                options={healthGoalsOptions}
+                isMulti
+                onChange={handleHealthGoalsChange}
+                placeholder="Select health goals..."
+                value={healthGoalsOptions.filter((option) =>
+                  healthGoals.includes(option.value)
+                )}
+                classNamePrefix="react-select"
+              />
+            </label>
+            <label>
+              If you selected "Other", please specify:
+              <input
+                type="text"
+                value={healthGoals.includes("other") ? "" : ""}
+                onChange={(e) => {
+                  if (healthGoals.includes("other")) {
+                    setHealthGoals([
+                      ...healthGoals.filter((goal) => goal !== "other"),
+                      e.target.value,
+                    ]);
+                  }
+                }}
+                placeholder="Please specify"
+              />
+            </label>
+            <label>
+              7. Email:
+              <br />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                checked={receiveUpdates}
+                onChange={() => setReceiveUpdates(!receiveUpdates)}
+              />
+              I’d like to receive new feature updates!
+            </label>
+
+            <button type="submit">Submit</button>
+          </form>
+        </>
       )}
       {showModal && (
         <Modal
