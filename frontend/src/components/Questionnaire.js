@@ -3,7 +3,7 @@ import Select from "react-select";
 import countryList from "react-select-country-list";
 import Modal from "./Modal";
 import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Questionnaire = () => {
   const [age, setAge] = useState("");
@@ -20,6 +20,8 @@ const Questionnaire = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const options = useMemo(() => countryList().getData(), []);
+
+  const navigate = useNavigate();
 
   const handleHealthIssuesChange = (selectedOptions) => {
     setHealthIssues(selectedOptions.map((option) => option.value));
@@ -46,11 +48,15 @@ const Questionnaire = () => {
       setShowModal(true);
       return;
     }
+
     if (healthGoals.includes("other") && otherHealthGoal.trim() === "") {
       setModalMessage('Please specify your "Other" health goal.');
       setShowModal(true);
       return;
     }
+
+    navigate("/results");
+
     const submissionData = `
       Age: ${age}
       Gender: ${gender}
@@ -192,22 +198,21 @@ const Questionnaire = () => {
                 classNamePrefix="react-select"
               />
             </label>
+
             <label>
               If you selected "Other", please specify:
               <input
                 type="text"
-                value={healthGoals.includes("other") ? "" : ""}
+                value={otherHealthGoal}
                 onChange={(e) => {
                   if (healthGoals.includes("other")) {
-                    setHealthGoals([
-                      ...healthGoals.filter((goal) => goal !== "other"),
-                      e.target.value,
-                    ]);
+                    setOtherHealthGoal(e.target.value);
                   }
                 }}
                 placeholder="Please specify"
               />
             </label>
+
             <label>
               7. Email:
               <br />
