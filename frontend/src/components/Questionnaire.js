@@ -55,7 +55,7 @@ const Questionnaire = () => {
       return;
     }
 
-    navigate("/results");
+    navigate("/result");
 
     const submissionData = `
       Age: ${age}
