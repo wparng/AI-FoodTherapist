@@ -97,12 +97,6 @@ const Result = () => {
               </button>
             </>
           )}
-          <p>Type: {result.type}</p>
-          <p>Color: {result.color}</p>
-          <p>Thickness: {result.thickness}</p>
-          <p>Texture: {result.texture}</p>
-          <p>Glossiness: {result.glossiness}</p>
-          <p>Distribution: {result.distribution}</p>
           <p>Associated Symptoms: {result.symptoms}</p>
 
           <h2>Recommended Foods and Teas</h2>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
-import laptopMockup from "../images/laptop-mockup.png";
 
 const LandingPage = () => {
   return (
@@ -17,7 +16,11 @@ const LandingPage = () => {
         </Link>
       </div>
       <div className="mockup">
-        <img src={laptopMockup} alt="Laptop Mockup" className="laptop-mockup" />
+        <img
+          src="/assets/images/laptop-mockup.png"
+          alt="Laptop Mockup"
+          className="laptop-mockup"
+        />
         <p className="upload-info">
           Upload a photo of your tongue and let our AI analyze your health.
         </p>
