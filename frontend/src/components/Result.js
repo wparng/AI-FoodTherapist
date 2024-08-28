@@ -4,10 +4,17 @@ import axios from "axios";
 import Modal from "./Modal";
 
 const tongueImages = {
-  TWF: "../images/twf-image.jpg",
-  TYF: "../images/tyf-image.jpg",
-  WGF: "../images/wgf-image.jpg",
-  YGF: "../images/ygf-image.jpg",
+  TWF: "/assets/images/twf-image.jpg",
+  TYF: "/assets/images/tyf-image.jpg",
+  WGF: "/assets/images/wgf-image.jpg",
+  YGF: "/assets/images/ygf-image.jpg",
+};
+
+const symptomsMap = {
+  TWF: "Symptoms for TWF...",
+  TYF: "Symptoms for TYF...",
+  WGF: "Symptoms for WGF...",
+  YGF: "Symptoms for YGF...",
 };
 
 const Result = () => {
@@ -82,6 +89,7 @@ const Result = () => {
 
   const resultType = result?.type;
   const resultImage = tongueImages[resultType] || null;
+  const symptoms = symptomsMap[resultType] || "No symptoms available.";
 
   return (
     <div className="app result">
@@ -97,7 +105,7 @@ const Result = () => {
               </button>
             </>
           )}
-          <p>Associated Symptoms: {result.symptoms}</p>
+          <p>Associated Symptoms: {symptoms}</p>
 
           <h2>Recommended Foods and Teas</h2>
           <button onClick={handleRecommendations}>
