@@ -7,7 +7,7 @@ import "./App.css";
 import Recommendation from "./components/recommendation/Recommendation";
 import FoodDetails from "./components/recommendation/FoodDetail";
 import PermissionRequest from "./components/PermissionRequest";
-// import Result from "./components/Result";
+import Result from "./components/Result";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="/permission-request" element={<PermissionRequest />} />
           <Route path="/upload-photo" element={<UploadPhoto />} />
           <Route path="/questionnaire" element={<Questionnaire />} />
-          {/* <Route path="/result" element={<Result />} /> */}
+          <Route path="/result" element={<Result />} />
           <Route path="/recommendation" element={<Recommendation />} />
           <Route path="/food-details/:type/:id" element={<FoodDetails />} />
         </Routes>

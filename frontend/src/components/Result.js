@@ -21,7 +21,7 @@ const Result = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { image } = location.state || {};
-  const [result, setResult] = useState(null);
+  const [resultType, setResultType] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
@@ -31,14 +31,15 @@ const Result = () => {
       try {
         const formData = new FormData();
         formData.append("photo", image);
-        // BACKEND_API_URL
-        const response = await axios.post("backend-api", formData, {
+
+        // Replace backend URL
+        const response = await axios.post("YOUR_BACKEND_API_URL", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
 
-        setResult(response.data);
+        setResultType(response.data.type);
       } catch (error) {
         setModalMessage("Error fetching results. Please try again later.");
         setShowModal(true);
@@ -57,7 +58,6 @@ const Result = () => {
   };
 
   const handleShare = async () => {
-    const resultType = result?.type;
     const resultImage = tongueImages[resultType];
 
     if (resultImage) {
@@ -87,16 +87,15 @@ const Result = () => {
     return <p>Loading...</p>;
   }
 
-  const resultType = result?.type;
   const resultImage = tongueImages[resultType] || null;
   const symptoms = symptomsMap[resultType] || "No symptoms available.";
 
   return (
     <div className="app result">
       <h1>Analysis Result</h1>
-      {result ? (
+      {resultType ? (
         <div>
-          <h2>{result.title}</h2>
+          <h2>Result Type: {resultType}</h2>
           {resultImage && (
             <>
               <img src={resultImage} alt={`Result for ${resultType}`} />
