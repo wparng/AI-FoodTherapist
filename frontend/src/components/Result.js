@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+import { FaShareAltSquare } from "react-icons/fa";
+import axios from "axios";
 
 const tongueImages = {
-  TWF: "/assets/images/twf-image.jpg",
-  TYF: "/assets/images/tyf-image.jpg",
-  WGF: "/assets/images/wgf-image.jpg",
-  YGF: "/assets/images/ygf-image.jpg",
+  TWF: "/assets/images/twf-image.png",
+  TYF: "/assets/images/tyf-image.png",
+  WGF: "/assets/images/wgf-image.png",
+  YGF: "/assets/images/ygf-image.png",
 };
 
 const symptomsMap = {
-  TWF: "Symptoms for TWF...",
+  TWF: "Symptoms for TWF Explanation of this type of tongue indicating your current body condition......",
   TYF: "Symptoms for TYF...",
   WGF: "Symptoms for WGF...",
   YGF: "Symptoms for YGF...",
 };
 
 const Result = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-  const { image } = location.state || {};
   const [resultType, setResultType] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -29,29 +28,28 @@ const Result = () => {
   useEffect(() => {
     const fetchResult = async () => {
       try {
-        const formData = new FormData();
-        formData.append("photo", image);
+        const response = await axios.get("/api/tongue-analysis"); // Replace endpoint
 
-        // Replace backend URL
-        const response = await axios.post("YOUR_BACKEND_API_URL", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        const analysisResult = response.data;
 
-        setResultType(response.data.type);
+        if (analysisResult.type) {
+          setResultType(analysisResult.type);
+        } else {
+          setModalMessage("Unexpected response from the server.");
+          setShowModal(true);
+        }
+
+        setLoading(false);
       } catch (error) {
-        setModalMessage("Error fetching results. Please try again later.");
+        console.error("Error fetching data:", error);
+        setModalMessage("Error fetching data from the server.");
         setShowModal(true);
-      } finally {
         setLoading(false);
       }
     };
 
-    if (image) {
-      fetchResult();
-    }
-  }, [image]);
+    fetchResult();
+  }, []);
 
   const handleRecommendations = () => {
     navigate("/recommendations");
@@ -96,15 +94,26 @@ const Result = () => {
       {resultType ? (
         <div>
           <h2>Result Type: {resultType}</h2>
+          <p>
+            Associated Symptoms: <br />
+            {symptoms}
+          </p>
           {resultImage && (
-            <>
-              <img src={resultImage} alt={`Result for ${resultType}`} />
-              <button onClick={handleShare} style={{ marginTop: "10px" }}>
-                Share Image
-              </button>
-            </>
+            <div className="image-container">
+              <img
+                src={resultImage}
+                alt={`Result for ${resultType}`}
+                className="share-image"
+              />
+              <div className="share-icon-container">
+                <FaShareAltSquare
+                  onClick={handleShare}
+                  className="share-icon"
+                />
+                <span className="share-label">Share Link</span>
+              </div>
+            </div>
           )}
-          <p>Associated Symptoms: {symptoms}</p>
 
           <h2>Recommended Foods and Teas</h2>
           <button onClick={handleRecommendations}>
