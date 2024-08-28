@@ -1,11 +1,20 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 .app {
+  display: flex;
+  flex-direction: column;
   font-family: "Noto Sans", sans-serif;
   background: linear-gradient(to bottom, #fef2e9 100%, #f9e2d2 100%);
   padding: 20px;
   border-radius: 10px;
   max-width: 400px;
+  height: 100vh;
   margin: auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 h1 {
   text-align: center;
@@ -129,7 +138,6 @@ input[type="file"] {
   margin: 20px 0;
   border: 1px solid #ddd;
   border-radius: 10px;
-  overflow: hidden;
   position: relative;
 }
 
@@ -165,31 +173,70 @@ input[type="file"] {
 }
 
 /* Questionnaire Page*/
+.questionnaire {
+  position: relative;
+}
 .questionnaire p {
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   color: #555;
 }
-.questionnaire .react-select__control {
+
+.questionnaire-navigation {
+  margin-top: 20px;
+  margin-left: -20px;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  background-color: #fef2e9;
+  box-shadow: 0px -5px 10px #f9b16f80;
+}
+.questionnaire-step button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
   background-color: #ffffff;
-  border: 1px solid #f9b16f;
-  border-radius: 10px;
+  border-radius: 50px;
+  cursor: pointer;
 }
-
-.questionnaire .react-select__option {
-  background-color: transparent;
-  color: #000000;
+.questionnaire-step button:hover {
+  background-color: #fbc02d;
+  color: #111;
 }
-
-.questionnaire .react-select__option--is-focused {
+.questionnaire-step button.selected {
   background-color: #ff912c;
   color: #ffffff;
 }
-
-.questionnaire .react-select__option--is-selected {
-  background-color: #ff912c;
-  color: #ffffff;
+.next {
+  width: 90%;
 }
-.questionnaire .react-select__menu {
-  background-color: #ffffff;
+.questionnaire .skip {
+  margin-top: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+.questionnaire .checkbox {
+  text-align: left;
+  margin-bottom: 0;
+}
+.questionnaire .back-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0;
+}
+.country-list {
+  max-height: 70vh;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.country-options {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from "react";
-import Select from "react-select";
 import countryList from "react-select-country-list";
 import Modal from "./Modal";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FaChevronLeft } from "react-icons/fa6";
 
 const Questionnaire = () => {
+  const [currentStep, setCurrentStep] = useState(0);
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [country, setCountry] = useState("");
@@ -14,48 +14,70 @@ const Questionnaire = () => {
   const [healthGoals, setHealthGoals] = useState([]);
   const [otherHealthGoal, setOtherHealthGoal] = useState("");
   const [email, setEmail] = useState("");
-  const [receiveUpdates, setReceiveUpdates] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [modalHeading, setModalHeading] = useState("Warning");
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-  const options = useMemo(() => countryList().getData(), []);
+  const [newsletter, setNewsletter] = useState(false);
 
+  const options = useMemo(() => countryList().getData(), []);
   const navigate = useNavigate();
 
-  const handleHealthIssuesChange = (selectedOptions) => {
-    setHealthIssues(selectedOptions.map((option) => option.value));
+  const handleNext = () => {
+    if (currentStep < 6) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      handleSubmit();
+    }
   };
 
-  const handleHealthGoalsChange = (selectedOptions) => {
-    if (selectedOptions.length > 3) {
-      setModalMessage("You can only select up to three health goals.");
-      setShowModal(true);
-      return;
-    }
-
-    if (!selectedOptions.some((option) => option.value === "other")) {
-      setOtherHealthGoal("");
-    }
-    setHealthGoals(selectedOptions.map((option) => option.value));
+  const handleSkip = () => {
+    navigate("/result");
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSelect = (setter) => (value) => {
+    setter(value);
+  };
 
+  const handleHealthIssuesChange = (issue) => {
+    if (healthIssues.includes(issue)) {
+      setHealthIssues(healthIssues.filter((item) => item !== issue));
+    } else {
+      setHealthIssues([...healthIssues, issue]);
+    }
+  };
+
+  const handleHealthGoalsChange = (goal) => {
+    if (goal === "other") {
+      if (!healthGoals.includes("other")) {
+        setHealthGoals([...healthGoals, "other"]);
+      }
+    } else {
+      if (healthGoals.includes(goal)) {
+        setHealthGoals(healthGoals.filter((g) => g !== goal));
+      } else {
+        if (healthGoals.length < 3) {
+          setHealthGoals([...healthGoals, goal]);
+        } else {
+          setModalMessage("You can only select up to three health goals.");
+          setShowModal(true);
+        }
+      }
+    }
+  };
+
+  const handleSubmit = () => {
     if (!age || !gender || !country || !energyLevel || !email) {
       setModalMessage("Please fill in all required fields.");
       setShowModal(true);
       return;
     }
 
-    if (healthGoals.includes("other") && otherHealthGoal.trim() === "") {
-      setModalMessage('Please specify your "Other" health goal.');
+    if (healthGoals.includes("other") && !otherHealthGoal) {
+      setModalMessage("Please specify your other health goal.");
       setShowModal(true);
       return;
     }
-
-    navigate("/result");
 
     const submissionData = `
       Age: ${age}
@@ -63,14 +85,19 @@ const Questionnaire = () => {
       Country: ${country}
       Energy Level: ${energyLevel}
       Health Issues: ${healthIssues.join(", ")}
-      Health Goals: ${healthGoals.join(", ")}
+      Health Goals: ${healthGoals
+        .map((goal) => (goal === "other" ? otherHealthGoal : goal))
+        .join(", ")}
       Email: ${email}
+      Newsletter: ${newsletter ? "Subscribed" : "Not Subscribed"}
     `;
 
     setModalMessage(submissionData);
+    console.log(submissionData);
     setModalHeading("Submission Info");
     setShowModal(true);
     setSubmitted(true);
+    navigate("/result");
   };
 
   const ageOptions = [
@@ -115,126 +142,182 @@ const Questionnaire = () => {
     { value: "other", label: "Other (please specify)" },
   ];
 
+  const steps = [
+    {
+      label: "1. Please select your age:",
+      options: ageOptions,
+      setter: setAge,
+    },
+    {
+      label: "2. Please select your gender:",
+      options: genderOptions,
+      setter: setGender,
+    },
+    {
+      label: "3. What is your country?",
+      options: options,
+      setter: setCountry,
+    },
+    {
+      label: "4. How would you describe your current energy levels? (1-5)",
+      options: energyLevelOptions,
+      setter: setEnergyLevel,
+    },
+    {
+      label:
+        "5. Do you often experience any of the following? (Select all that apply)",
+      options: healthIssuesOptions,
+      setter: handleHealthIssuesChange,
+      isMulti: true,
+    },
+    {
+      label: "6. What are your primary health goals? (Select up to three)",
+      options: healthGoalsOptions,
+      setter: handleHealthGoalsChange,
+      isMulti: true,
+    },
+    {
+      label: "7. Email:",
+      input: true,
+      setter: setEmail,
+    },
+    {
+      label: "I’d like to receive new feature updates!",
+      checkbox: true,
+      setter: setNewsletter,
+    },
+  ];
+
   return (
     <div className="app questionnaire">
       <h1>Questionnaire</h1>
       {submitted ? (
         <p>Thank you for completing the questionnaire!</p>
       ) : (
-        <>
-          <Link
-            to="/upload-photo"
-            style={{ display: "inline-block", marginBottom: "20px" }}
-          >
-            <FaArrowLeft />
-          </Link>
-          <form onSubmit={handleSubmit}>
-            <label>
-              1. Please select your age:
-              <Select
-                options={ageOptions}
-                value={ageOptions.find((option) => option.value === age)}
-                onChange={(selectedOption) => setAge(selectedOption.value)}
-                classNamePrefix="react-select"
-              />
-            </label>
-
-            <label>
-              2. Please select your gender:
-              <Select
-                options={genderOptions}
-                value={genderOptions.find((option) => option.value === gender)}
-                onChange={(selectedOption) => setGender(selectedOption.value)}
-                classNamePrefix="react-select"
-              />
-            </label>
-
-            <label>
-              3. What is your country?
-              <Select
-                options={options}
-                value={options.find((option) => option.value === country)}
-                onChange={(selectedOption) => setCountry(selectedOption.value)}
-                classNamePrefix="react-select"
-              />
-            </label>
-
-            <label>
-              4. How would you describe your current energy levels? (1-5)
-              <Select
-                options={energyLevelOptions}
-                value={energyLevelOptions.find(
-                  (option) => option.value === energyLevel
-                )}
-                onChange={(selectedOption) =>
-                  setEnergyLevel(selectedOption.value)
-                }
-                classNamePrefix="react-select"
-              />
-            </label>
-
-            <label>
-              5. Do you often experience any of the following? (Select all that
-              apply)
-              <Select
-                options={healthIssuesOptions}
-                isMulti
-                onChange={handleHealthIssuesChange}
-                placeholder="Select health issues..."
-                classNamePrefix="react-select"
-              />
-            </label>
-
-            <label>
-              6. What are your primary health goals? (Select up to three)
-              <Select
-                options={healthGoalsOptions}
-                isMulti
-                onChange={handleHealthGoalsChange}
-                placeholder="Select health goals..."
-                value={healthGoalsOptions.filter((option) =>
-                  healthGoals.includes(option.value)
-                )}
-                classNamePrefix="react-select"
-              />
-            </label>
-
-            <label>
-              If you selected "Other", please specify:
-              <input
-                type="text"
-                value={otherHealthGoal}
-                onChange={(e) => {
-                  if (healthGoals.includes("other")) {
-                    setOtherHealthGoal(e.target.value);
+        <div>
+          {currentStep > 0 && (
+            <button
+              onClick={() => setCurrentStep(currentStep - 1)}
+              className="back-button"
+            >
+              <FaChevronLeft />
+            </button>
+          )}
+          <div className="questionnaire-step">
+            <p>{steps[currentStep].label}</p>
+            {currentStep === 2 && (
+              <div className="country-list">
+                <div className="country-options">
+                  {steps[currentStep].options.map((option) => (
+                    <button
+                      key={option.value}
+                      onClick={() =>
+                        handleSelect(steps[currentStep].setter)(option.value)
+                      }
+                      className={option.value === country ? "selected" : ""}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            {currentStep !== 2 &&
+              currentStep < 4 &&
+              steps[currentStep].options.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() =>
+                    handleSelect(steps[currentStep].setter)(option.value)
                   }
-                }}
-                placeholder="Please specify"
-              />
-            </label>
-
-            <label>
-              7. Email:
-              <br />
+                  className={
+                    option.value ===
+                    (currentStep === 0
+                      ? age
+                      : currentStep === 1
+                      ? gender
+                      : currentStep === 2
+                      ? country
+                      : energyLevel)
+                      ? "selected"
+                      : ""
+                  }
+                >
+                  {option.label}
+                </button>
+              ))}
+            {currentStep === 4 && (
+              <div>
+                {healthIssuesOptions.map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => handleHealthIssuesChange(option.value)}
+                    className={
+                      healthIssues.includes(option.value) ? "selected" : ""
+                    }
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            )}
+            {currentStep === 5 && (
+              <div>
+                {healthGoalsOptions.map((goal) => (
+                  <div key={goal.value}>
+                    <button
+                      onClick={() => handleHealthGoalsChange(goal.value)}
+                      className={
+                        healthGoals.includes(goal.value) ? "selected" : ""
+                      }
+                    >
+                      {goal.label}
+                    </button>
+                    {goal.value === "other" &&
+                      healthGoals.includes("other") && (
+                        <input
+                          type="text"
+                          value={otherHealthGoal}
+                          onChange={(e) => setOtherHealthGoal(e.target.value)}
+                          placeholder="Please specify"
+                          style={{ marginLeft: "10px" }}
+                        />
+                      )}
+                  </div>
+                ))}
+              </div>
+            )}
+            {currentStep === 6 && (
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
               />
-            </label>
+            )}
+          </div>
 
-            <label>
-              <input
-                type="checkbox"
-                checked={receiveUpdates}
-                onChange={() => setReceiveUpdates(!receiveUpdates)}
-              />
-              I’d like to receive new feature updates!
-            </label>
-
-            <button type="submit">Submit</button>
-          </form>
-        </>
+          <div className="questionnaire-navigation">
+            {currentStep === 0 && (
+              <p onClick={handleSkip} className="skip">
+                I would like to skip it
+              </p>
+            )}
+            {currentStep === 6 && (
+              <label className="checkbox">
+                <input
+                  type="checkbox"
+                  checked={newsletter}
+                  onChange={(e) => setNewsletter(e.target.checked)}
+                />
+                I’d like to receive new feature updates!
+              </label>
+            )}
+            <button onClick={handleNext} className="next">
+              {currentStep < 6 ? "Next" : "Submit"}
+            </button>
+          </div>
+        </div>
       )}
       {showModal && (
         <Modal
