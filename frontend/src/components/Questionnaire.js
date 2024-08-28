@@ -40,7 +40,7 @@ const Questionnaire = () => {
     setHealthGoals(selectedOptions.map((option) => option.value));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!age || !gender || !country || !energyLevel || !email) {
@@ -50,27 +50,48 @@ const Questionnaire = () => {
     }
 
     if (healthGoals.includes("other") && otherHealthGoal.trim() === "") {
-      setModalMessage('Please specify your "Other" health goals.');
+      setModalMessage('Please specify your "Other" health goal.');
       setShowModal(true);
       return;
     }
 
-    navigate("/result");
+    const formData = {
+      age,
+      gender,
+      country,
+      energyLevel,
+      healthIssues,
+      healthGoals,
+      otherHealthGoal,
+      email,
+      receiveUpdates,
+    };
 
-    const submissionData = `
-      Age: ${age}
-      Gender: ${gender}
-      Country: ${country}
-      Energy Level: ${energyLevel}
-      Health Issues: ${healthIssues.join(", ")}
-      Health Goals: ${healthGoals.join(", ")}
-      Email: ${email}
-    `;
+    try {
+      const response = await fetch("http://localhost:5000/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setModalMessage(submissionData);
-    setModalHeading("Submission Info");
-    setShowModal(true);
-    setSubmitted(true);
+      if (response.ok) {
+        const result = await response.json();
+        setModalMessage(result.message);
+        setModalHeading("Submission Info");
+        setShowModal(true);
+        setSubmitted(true);
+        navigate("/result");
+      } else {
+        setModalMessage("There was an issue submitting the form.");
+        setShowModal(true);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setModalMessage("There was an error submitting the form.");
+      setShowModal(true);
+    }
   };
 
   const ageOptions = [
