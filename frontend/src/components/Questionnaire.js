@@ -50,7 +50,7 @@ const Questionnaire = () => {
     }
 
     if (healthGoals.includes("other") && otherHealthGoal.trim() === "") {
-      setModalMessage('Please specify your "Other" health goal.');
+      setModalMessage('Please specify your "Other" health goals.');
       setShowModal(true);
       return;
     }
