@@ -1,0 +1,29 @@
+.share-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-width: 400px;
+  height: 100vh;
+  background-color: #00000097;
+  overflow-y: auto;
+}
+.share-modal h3 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+.share-modal button {
+  margin: 5px 0;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+.share-modal button:hover {
+  color: #111;
+  border: 1px solid #111;
+}
