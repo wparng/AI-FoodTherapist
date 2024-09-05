@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import html2canvas from "html2canvas";
 
 const Recommendation = ({ predictionResult = "TYF" }) => {
   const [foodData, setFoodData] = useState([]);
@@ -71,6 +72,16 @@ const Recommendation = ({ predictionResult = "TYF" }) => {
   const handleItemClick = (itemId, type) => {
     navigate(`/${predictionResult}/${type}/${itemId}`);
   };
+  const handleScreenshot = () => {
+    html2canvas(document.body).then((canvas) => {
+      const img = canvas.toDataURL("image/png");
+      // Create a download link and trigger download
+      const link = document.createElement("a");
+      link.href = img;
+      link.download = "Recommendations.png";
+      link.click();
+    });
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -90,11 +101,11 @@ const Recommendation = ({ predictionResult = "TYF" }) => {
 
       <div className="relative mb-8">
         <div
-          onClick={handleBack}
+          onClick={handleScreenshot}
           className="absolute top-0 right-0 cursor-pointer p-2"
         >
           <img
-            src="/assets/images/image 6.svg"
+            src="/assets/images/download.svg"
             alt="Back"
             className="w-5 h-5"
           />
