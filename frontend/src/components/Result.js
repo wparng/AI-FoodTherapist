@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import ShareModal from "./ShareModal";
-import { LuShare2, LuCopy } from "react-icons/lu";
+import { LuShare2, LuCopy, LuChevronLeft } from "react-icons/lu";
 import "./Result.css";
 
 const tongueImages = {
@@ -131,59 +131,81 @@ const Result = ({ predictionResult }) => {
       className="result-container"
       style={{ backgroundColor: resultData.color }}
     >
-      <h1>Analysis Result</h1>
-      <div className="result">
-        <div className="result-header">
-          <h2 className="result-title">{resultData.title}</h2>
-          <h3 className="result-title-expanded">
-            ({resultData.titleExpanded})
-          </h3>
-          <div className="tags">
-            <span>{resultData.tag1}</span>
-            <span>{resultData.tag2}</span>
+      <div className="analysis-result">
+        <LuChevronLeft
+          onClick={() => navigate("/upload-photo")}
+          style={{ cursor: "pointer", fontSize: "1.5em", marginRight: "10px" }}
+        />
+        <h1>Analysis Result</h1>
+      </div>
+      <div className="result-scroll">
+        <div className="result">
+          <div className="result-header">
+            <h2 className="result-title">{resultData.title}</h2>
+            <h3 className="result-title-expanded">
+              ({resultData.titleExpanded})
+            </h3>
+            <div className="tags">
+              <span>{resultData.tag1}</span>
+              <span>{resultData.tag2}</span>
+            </div>
+          </div>
+          <img
+            src={tongueImages[predictionResult]}
+            alt={resultData.title}
+            className="tongue-image"
+          />
+        </div>
+        <div className="share-icons">
+          <LuShare2 onClick={handleShareOpen} className="icon" />
+          <LuCopy onClick={handleCopy} className="icon" />
+        </div>
+        <p className="description">{resultData.description}</p>
+        <div className="result-details">
+          <div className="result-detail gut">
+            <h3 style={{ backgroundColor: resultData.textColor }}>
+              Gut Health
+            </h3>
+            <p>{resultData.gutHealth}</p>
+          </div>
+          <div className="result-detail level">
+            <h3 style={{ backgroundColor: resultData.textColor }}>
+              Inflammation Levels
+            </h3>
+            <p>{resultData.inflammation}</p>
+          </div>
+          <div className="result-detail condition">
+            <h3 style={{ backgroundColor: resultData.textColor }}>
+              Health Condition
+            </h3>
+            <p>{resultData.healthCondition}</p>
           </div>
         </div>
-        <img
-          src={tongueImages[predictionResult]}
-          alt={resultData.title}
-          className="tongue-image"
-        />
-      </div>
-      <div className="share-icons">
-        <LuShare2 onClick={handleShareOpen} className="icon" />
-        <LuCopy onClick={handleCopy} className="icon" />
-      </div>
-      <p className="description">{resultData.description}</p>
-      <div className="result-details">
-        <div className="result-detail gut">
-          <h3 style={{ backgroundColor: resultData.textColor }}>Gut Health</h3>
-          <p>{resultData.gutHealth}</p>
+        <div className="buddy-info">
+          <img
+            src={resultData.buddyImage}
+            alt="Buddy"
+            className="buddy-image"
+          />
+          <div className="buddy-text">
+            <h4>Heal Buddy: {resultData.buddy}</h4>
+            <p>{resultData.buddyDescription}</p>
+          </div>
         </div>
-        <div className="result-detail level">
-          <h3 style={{ backgroundColor: resultData.textColor }}>
-            Inflammation Levels
-          </h3>
-          <p>{resultData.inflammation}</p>
-        </div>
-        <div className="result-detail condition">
-          <h3 style={{ backgroundColor: resultData.textColor }}>
-            Health Condition
-          </h3>
-          <p>{resultData.healthCondition}</p>
+        <div className="result-detailed-info">
+          <h3>What does {resultData.titleExpanded} mean?</h3>
+          <p>{resultData.detailedInfo}</p>
         </div>
       </div>
-      <div className="buddy-info">
-        <img src={resultData.buddyImage} alt="Buddy" className="buddy-image" />
-        <div className="buddy-text">
-          <h4>Heal Buddy: {resultData.buddy}</h4>
-          <p>{resultData.buddyDescription}</p>
-        </div>
+      <div
+        className="next"
+        style={{
+          backgroundColor: resultData.color,
+          boxShadow: `0px -5px 10px ${resultData.textColor}`,
+        }}
+      >
+        <button onClick={() => navigate("/recommendations")}>Next</button>
       </div>
-      <div className="result-detailed-info">
-        <h3>What does {resultData.titleExpanded} mean?</h3>
-        <p>{resultData.detailedInfo}</p>
-      </div>
-      <button onClick={() => navigate("/recommendations")}>Next</button>
       {showModal && (
         <Modal
           heading="Warning"
