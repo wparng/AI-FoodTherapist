@@ -213,7 +213,7 @@ const Result = ({ predictionResult }) => {
         </div>
       </div>
       <div
-        className="next"
+        className="next-btn"
         style={{
           backgroundColor: resultData.color,
           boxShadow: `0px -5px 10px ${resultData.textColor}`,

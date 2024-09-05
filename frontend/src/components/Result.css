@@ -156,12 +156,12 @@
   font-size: 12px;
   color: #373737;
 }
-.next {
+.next-btn {
   padding-bottom: 20px;
   width: 100%;
   text-align: center;
 }
-.next button {
+.next-btn button {
   width: 80%;
   margin-bottom: 10px;
 }
