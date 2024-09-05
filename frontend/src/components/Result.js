@@ -15,66 +15,78 @@ const tongueImages = {
 const resultsContent = {
   TWF: {
     title: "TWF",
-    titleExpanded: "(Thick White Fur)",
+    titleExpanded: "Thin White Fur Tongue",
+    tag1: ["#calm"],
+    tag2: ["#steady"],
     description:
-      "TWF is known for being a little bit lazy, preferring to lounge around.",
-    gutHealth: "Loss of appetite or bloating after meals",
+      "Thin White Fur Tongue is calm and balanced, preferring routines and mild, nourishing foods. Steady and reliable, they choose moderation to maintain harmony and avoid extremes.",
+    gutHealth:
+      "Balanced - Digestive system functions well with minimal bloating or discomfort",
     inflammation: "Low to minimal",
     healthCondition: "90%",
-    buddy: "A buddy to eat together",
+    buddy: "TYF - Cheat Day Pals",
     buddyDescription:
       "TWF keeps it light, but sometimes joins TYF, savoring comfort food while keeping balance in mind.",
-    buddyImage: "/assets/images/twf-buddy.png",
+    buddyImage: "/assets/images/tyf-image.png",
     detailedInfo:
-      "This tongue presentation may experience symptoms such as a feeling of heaviness in the body or limbs...",
+      "This tongue type indicates a generally healthy state, with the tongue appearing slightly pale with a thin white coating. Individuals with TWF may occasionally experience mouth dryness or mild cold symptoms. They thrive on balanced, light, and nourishing foods that support overall well-being.",
     color: "#FFC6C6",
     textColor: "#A64D4B",
   },
   YGF: {
     title: "YGF",
-    titleExpanded: "Yellow Greasy Fur",
-    description: "YGF indicates a tendency towards internal heat.",
-    gutHealth: "Loss of appetite or bloating after meals",
+    titleExpanded: "Yellow Greasy Fur Tongue",
+    tag1: ["#rich"],
+    tag2: ["#spiceislife"],
+    description:
+      "Yellow Greasy Fur Tongue is indulgent, enjoying rich, flavorful foods with intensity. They savor every bite but know they need to detox regularly to keep things in check",
+    gutHealth: "Compromised, with tendencies toward digestive sluggishness",
     inflammation: "High - Strong signs of internal heat",
     healthCondition: "30%",
     buddy: "A buddy to eat together",
     buddyDescription:
-      "TWF keeps it light, but sometimes joins TYF, savoring comfort food while keeping balance in mind.",
-    buddyImage: "/assets/images/twf-image.png",
+      "WGF, the Deep-Fried Queen, teams up with YGF, the Spicy Prince. They love indulging, but a light meal wouldn't hurt.",
+    buddyImage: "/assets/images/wgf-image.png",
     detailedInfo:
-      "This tongue presentation may experience symptoms such as bloating, poor appetite, nausea...",
+      "This tongue type suggests significant damp-heat and inflammation from a diet high in rich, greasy foods. It calls for detoxifying, cooling foods to reduce inflammation and restore balance.",
     color: " #7695FF",
     textColor: "#295F98",
   },
   TYF: {
     title: "TYF",
-    titleExpanded: "Thin Yellow Fur",
-    description: "TYF suggests heat and dampness in the body.",
-    gutHealth: "Loss of appetite or bloating after meals",
+    titleExpanded: "Thin Yellow Fur Tongue",
+    tag1: ["#spicy"],
+    tag2: ["#flavorful"],
+    description:
+      "Thin Yellow Fur Tongue is the fiery type who loves flavorful foods. They’re drawn to excitement in meals but know when to cool things down and keep balance.",
+    gutHealth:
+      "Sensitive, with a tendency towards digestive discomfort if not careful",
     inflammation: "Moderate - Higher internal heat",
     healthCondition: "70%",
-    buddy: "A buddy to eat together",
+    buddy: "YGF - Spice Lovers ",
     buddyDescription:
-      "TWF keeps it light, but sometimes joins TYF, savoring comfort food while keeping balance in mind.",
-    buddyImage: "/assets/images/twf-image.png",
+      "No Spice, No Life. They're on fire for spicy flavors, but sometimes, a cool cup of tea is just what they need.",
+    buddyImage: "/assets/images/ygf-image.png",
     detailedInfo:
-      "This tongue presentation may experience symptoms such as fatigue and a sensation of fullness...",
+      "This tongue type is linked to internal heat and mild inflammation, often seen with a bitter taste and restlessness. It signals a need for cooling, detoxifying foods to maintain balance.",
     color: "#FF912C",
     textColor: "#EA6713",
   },
   WGF: {
     title: "WGF",
     titleExpanded: "White Greasy Fur",
+    tag1: ["#relaxed"],
+    tag2: ["#whyrush"],
     description: "WGF shows a balance of heat and dampness.",
     gutHealth: "Loss of appetite or bloating after meals",
     inflammation: "Low to moderate",
     healthCondition: "50%",
-    buddy: "A buddy to eat together",
+    buddy: "YGF - Indulgent Duo",
     buddyDescription:
-      "TWF keeps it light, but sometimes joins TYF, savoring comfort food while keeping balance in mind.",
-    buddyImage: "/assets/images/twf-image.png",
+      "WGF loves greasy foods, YGF craves spice. They indulge, though a light meal wouldn't hurt.",
+    buddyImage: "/assets/images/ygf-image.png",
     detailedInfo:
-      "This tongue presentation may experience symptoms such as fatigue and a sensation of fullness...",
+      "This tongue type is characterized by heaviness, bloating, poor appetite, nausea, and loose or sticky stools. It reflects a need to address these symptoms and restore digestive balance.",
     color: "#78B7D0",
     textColor: "#16325B",
   },
@@ -82,40 +94,10 @@ const resultsContent = {
 
 const Result = ({ predictionResult }) => {
   const navigate = useNavigate();
-  // const [resultType, setResultType] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-
-  // useEffect(() => {
-  //   const fetchResult = () => {
-  //     setTimeout(() => {
-  //       const simulatedResponse = { type: "TWF" };
-  //       setResultType(simulatedResponse.type);
-  //       setLoading(false);
-  //     }, 1000);
-  //   };
-
-  // useEffect(() => {
-  //   const fetchResult = async () => {
-  //     try {
-  //       const response = await fetch("your-backend-api-url");
-  //       const data = await response.json();
-  //       setResultType(data.type);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching result:", error);
-  //       setModalMessage(
-  //         error.message || "An error occurred while fetching the result."
-  //       );
-  //       setShowModal(true);
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchResult();
-  // }, []);
 
   const handleShareOpen = () => {
     setShowShareModal(true);
@@ -153,10 +135,12 @@ const Result = ({ predictionResult }) => {
       <div className="result">
         <div className="result-header">
           <h2 className="result-title">{resultData.title}</h2>
-          <h3 className="result-title-expanded">{resultData.titleExpanded}</h3>
+          <h3 className="result-title-expanded">
+            ({resultData.titleExpanded})
+          </h3>
           <div className="tags">
-            <span>#relaxed</span>
-            <span>#whyRushed</span>
+            <span>{resultData.tag1}</span>
+            <span>{resultData.tag2}</span>
           </div>
         </div>
         <img
@@ -191,12 +175,12 @@ const Result = ({ predictionResult }) => {
       <div className="buddy-info">
         <img src={resultData.buddyImage} alt="Buddy" className="buddy-image" />
         <div className="buddy-text">
-          <h4>Heal Buddy: {predictionResult} - Cheat Day Pals</h4>
+          <h4>Heal Buddy: {resultData.buddy}</h4>
           <p>{resultData.buddyDescription}</p>
         </div>
       </div>
       <div className="result-detailed-info">
-        <h3>What does {resultData.title} mean?</h3>
+        <h3>What does {resultData.titleExpanded} mean?</h3>
         <p>{resultData.detailedInfo}</p>
       </div>
       <button onClick={() => navigate("/recommendations")}>Next</button>
