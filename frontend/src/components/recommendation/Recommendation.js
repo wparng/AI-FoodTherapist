@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Recommendation = () => {
+const Recommendation = ({ predictionResult = "TYF" }) => {
   const [foodData, setFoodData] = useState([]);
   const [herbalTeaData, setHerbalTeaData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,10 +11,36 @@ const Recommendation = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      let foodUrl = "";
+      let herbalTeaUrl = "";
+
+      switch (predictionResult) {
+        case "TYF":
+          foodUrl = "http://localhost:5000/TYF";
+          herbalTeaUrl = "http://localhost:5000/TYF";
+          break;
+        case "TWF":
+          foodUrl = "http://localhost:5000/TWF";
+          herbalTeaUrl = "http://localhost:5000/TWF";
+          break;
+        case "YGF":
+          foodUrl = "http://localhost:5000/YGF";
+          herbalTeaUrl = "http://localhost:5000/YGF";
+          break;
+        case "WGF":
+          foodUrl = "http://localhost:5000/WGF";
+          herbalTeaUrl = "http://localhost:5000/WGF";
+          break;
+        default:
+          setError(new Error("Invalid recommendation type"));
+          setLoading(false);
+          return;
+      }
+
       try {
         const [foodResponse, herbalTeaResponse] = await Promise.all([
-          fetch("http://localhost:5000/food-items"),
-          fetch("http://localhost:5000/herbal-tea-recommendation"),
+          fetch(foodUrl),
+          fetch(herbalTeaUrl),
         ]);
 
         if (!foodResponse.ok || !herbalTeaResponse.ok) {
@@ -26,8 +52,8 @@ const Recommendation = () => {
           herbalTeaResponse.json(),
         ]);
 
-        setFoodData(foodItems);
-        setHerbalTeaData(herbalTeas);
+        setFoodData(foodItems["food-items"] || []);
+        setHerbalTeaData(herbalTeas["herbal-tea-recommendation"] || []);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -36,14 +62,14 @@ const Recommendation = () => {
     };
 
     fetchData();
-  }, []);
+  }, [predictionResult]);
 
   const handleBack = () => {
-    navigate(-1);
+    navigate(-1); // Go back to the previous page
   };
 
-  const handleItemClick = (id, type) => {
-    navigate(`/food-details/${type}/${id}`);
+  const handleItemClick = (itemId, type) => {
+    navigate(`/${predictionResult}/${type}/${itemId}`);
   };
 
   if (loading) return <p>Loading...</p>;
