@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import UploadPhoto from "./components/UploadPhoto";
@@ -10,16 +10,27 @@ import PermissionRequest from "./components/PermissionRequest";
 import Result from "./components/Result";
 
 function App() {
+  const [predictionResult, setPredictionResult] = useState(null);
+
   return (
     <Router>
       <div>
         <Routes>
           <Route path="/" exact element={<LandingPage />} />
           <Route path="/permission-request" element={<PermissionRequest />} />
-          <Route path="/upload-photo" element={<UploadPhoto />} />
+          <Route
+            path="/upload-photo"
+            element={<UploadPhoto setPredictionResult={setPredictionResult} />}
+          />
           <Route path="/questionnaire" element={<Questionnaire />} />
-          <Route path="/result" element={<Result />} />
-          <Route path="/recommendation" element={<Recommendation />} />
+          <Route
+            path="/result"
+            element={<Result predictionResult={predictionResult} />}
+          />
+          <Route
+            path="/recommendations"
+            element={<Recommendation predictionResult={predictionResult} />}
+          />
           <Route path="/food-details/:type/:id" element={<FoodDetails />} />
         </Routes>
       </div>

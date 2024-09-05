@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 
-const UploadPhoto = () => {
+const UploadPhoto = ({ setPredictionResult }) => {
   const [image, setImage] = useState(null);
   const [isUploaded, setIsUploaded] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const navigate = useNavigate();
+  const [file, setFile] = useState(null); // State to hold the actual file
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const fileSizeInMB = file.size / (1024 * 1024);
-      const validImageTypes = ["image/jpeg", "image/png"];
+      const validImageTypes = ["image/jpeg", "image/png", "image/bmp"];
 
       if (!validImageTypes.includes(file.type)) {
         setModalMessage(
@@ -23,35 +24,60 @@ const UploadPhoto = () => {
         return;
       }
 
-      if (fileSizeInMB < 3) {
-        setModalMessage(
-          "The file is too small. Please upload a photo larger than 3 MB."
-        );
-        setShowModal(true);
-        return;
-      } else if (fileSizeInMB > 9) {
-        setModalMessage(
-          "The file is too large. Please upload a photo smaller than 9 MB."
-        );
-        setShowModal(true);
-        return;
-      }
+      // if (fileSizeInMB < 3) {
+      //   setModalMessage(
+      //     "The file is too small. Please upload a photo larger than 3 MB."
+      //   );
+      //   setShowModal(true);
+      //   return;
+      // } else if (fileSizeInMB > 9) {
+      //   setModalMessage(
+      //     "The file is too large. Please upload a photo smaller than 9 MB."
+      //   );
+      //   setShowModal(true);
+      //   return;
+      // }
 
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
+      setFile(file);
       setIsUploaded(true);
     }
   };
 
-  const handleUpload = () => {
-    if (image) {
-      navigate("/questionnaire");
+  const handleUpload = async () => {
+    if (file) {
+      const formData = new FormData();
+      formData.append("image", file); // Append the actual file object
+      try {
+        const response = await fetch(
+          process.env.REACT_APP_APIURLCLASSIFICATION,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+          //console.log("Prediction result:", data);
+          setPredictionResult(data.label);
+          navigate("/questionnaire");
+        } else {
+          setModalMessage(`Error: ${data.error}`);
+          setShowModal(true);
+        }
+      } catch (error) {
+        console.error("Request failed:", error);
+        setModalMessage("An error occurred while uploading the image.");
+        setShowModal(true);
+      }
     } else {
       setModalMessage("Please upload a photo before proceeding.");
       setShowModal(true);
     }
   };
-
   const handleDelete = () => {
     setImage(null);
     setIsUploaded(false);

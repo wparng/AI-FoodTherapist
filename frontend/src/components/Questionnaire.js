@@ -79,25 +79,51 @@ const Questionnaire = () => {
       return;
     }
 
-    const submissionData = `
-      Age: ${age}
-      Gender: ${gender}
-      Country: ${country}
-      Energy Level: ${energyLevel}
-      Health Issues: ${healthIssues.join(", ")}
-      Health Goals: ${healthGoals
-        .map((goal) => (goal === "other" ? otherHealthGoal : goal))
-        .join(", ")}
-      Email: ${email}
-      Newsletter: ${newsletter ? "Subscribed" : "Not Subscribed"}
-    `;
+    const submissionData = {
+      age: age,
+      gender: gender,
+      country: country,
+      energyLevel: energyLevel,
+      healthIssues: healthIssues,
+      healthGoals: healthGoals,
+      otherHealthGoal: otherHealthGoal,
+      // .map((goal) => (goal === "other" ? otherHealthGoal : goal))
+      // .join(", ")}
+      email: email,
+      newsletter: newsletter,
+    };
 
-    setModalMessage(submissionData);
-    console.log(submissionData);
+    const sendSubmitRequest = async (submissionData) => {
+      try {
+        const response = await fetch(process.env.REACT_APP_APIURLSUBMISSION, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ body: JSON.stringify(submissionData) }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const result = await response.json();
+        // console.log("Success:", result);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    sendSubmitRequest(submissionData);
+
+    // setModalMessage(submissionData);
+    // console.log(submissionData);
+
     setModalHeading("Submission Info");
     setShowModal(true);
     setSubmitted(true);
     navigate("/result");
+
+    // navigate("/result");
   };
 
   const ageOptions = [

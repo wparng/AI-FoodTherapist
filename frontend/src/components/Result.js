@@ -80,42 +80,42 @@ const resultsContent = {
   },
 };
 
-const Result = () => {
+const Result = ({ predictionResult }) => {
   const navigate = useNavigate();
-  const [resultType, setResultType] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [resultType, setResultType] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-  useEffect(() => {
-    const fetchResult = () => {
-      setTimeout(() => {
-        const simulatedResponse = { type: "TWF" };
-        setResultType(simulatedResponse.type);
-        setLoading(false);
-      }, 1000);
-    };
+  // useEffect(() => {
+  //   const fetchResult = () => {
+  //     setTimeout(() => {
+  //       const simulatedResponse = { type: "TWF" };
+  //       setResultType(simulatedResponse.type);
+  //       setLoading(false);
+  //     }, 1000);
+  //   };
 
-    // useEffect(() => {
-    //   const fetchResult = async () => {
-    //     try {
-    //       const response = await fetch("your-backend-api-url");
-    //       const data = await response.json();
-    //       setResultType(data.type);
-    //       setLoading(false);
-    //     } catch (error) {
-    //       console.error("Error fetching result:", error);
-    //       setModalMessage(
-    //         error.message || "An error occurred while fetching the result."
-    //       );
-    //       setShowModal(true);
-    //       setLoading(false);
-    //     }
-    //   };
+  // useEffect(() => {
+  //   const fetchResult = async () => {
+  //     try {
+  //       const response = await fetch("your-backend-api-url");
+  //       const data = await response.json();
+  //       setResultType(data.type);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching result:", error);
+  //       setModalMessage(
+  //         error.message || "An error occurred while fetching the result."
+  //       );
+  //       setShowModal(true);
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchResult();
-  }, []);
+  //   fetchResult();
+  // }, []);
 
   const handleShareOpen = () => {
     setShowShareModal(true);
@@ -138,11 +138,11 @@ const Result = () => {
     return <p>Loading...</p>;
   }
 
-  if (!resultType) {
+  if (!predictionResult) {
     return <p>No result available.</p>;
   }
 
-  const resultData = resultsContent[resultType];
+  const resultData = resultsContent[predictionResult];
 
   return (
     <div
@@ -160,7 +160,7 @@ const Result = () => {
           </div>
         </div>
         <img
-          src={tongueImages[resultType]}
+          src={tongueImages[predictionResult]}
           alt={resultData.title}
           className="tongue-image"
         />
@@ -191,7 +191,7 @@ const Result = () => {
       <div className="buddy-info">
         <img src={resultData.buddyImage} alt="Buddy" className="buddy-image" />
         <div className="buddy-text">
-          <h4>Heal Buddy: {resultType} - Cheat Day Pals</h4>
+          <h4>Heal Buddy: {predictionResult} - Cheat Day Pals</h4>
           <p>{resultData.buddyDescription}</p>
         </div>
       </div>
@@ -209,7 +209,7 @@ const Result = () => {
       )}
       {showShareModal && (
         <ShareModal
-          resultType={resultType}
+          resultType={predictionResult}
           onClose={() => setShowShareModal(false)}
         />
       )}
