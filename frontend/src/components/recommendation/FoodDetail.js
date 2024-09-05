@@ -1,46 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "./FoodDetail.css";
+import { food_data } from "./FoodRecommendations";
+// import { food_data } from "./db";
 
-const FoodDetails = () => {
-  const { type, id } = useParams();
-  console.log(type, "immm tt");
-  const [itemData, setItemData] = useState(null);
-  const [loading, setLoading] = useState(true);
+const FoodDetails = ({ predictionResult }) => {
+  const { id, type } = useParams();
+  const navigate = useNavigate();
+  const itemData = food_data[predictionResult]?.[type]?.[id];
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       let response;
+  //       if (type === "food") {
+  //         console.log(type, "immm tt");
+  //         response = await fetch(`http://localhost:5000/food-items/${id}`);
+  //       } else if (type === "tea") {
+  //         response = await fetch(
+  //           `http://localhost:5000/herbal-tea-recommendation/${id}`
+  //         );
+  //       } else {
+  //         throw new Error("Invalid type");
+  //       }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let response;
-        if (type === "food") {
-          console.log(type, "immm tt");
-          response = await fetch(`http://localhost:5000/food-items/${id}`);
-        } else if (type === "tea") {
-          response = await fetch(
-            `http://localhost:5000/herbal-tea-recommendation/${id}`
-          );
-        } else {
-          throw new Error("Invalid type");
-        }
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+  //       const item = await response.json();
+  //       setItemData(item);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       setError(error);
+  //       setLoading(false);
+  //     }
+  //   };
 
-        const item = await response.json();
-        setItemData(item);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [type, id]);
+  //   fetchData();
+  // }, [type, id]);
 
   const handleBack = () => {
     navigate(-1);
