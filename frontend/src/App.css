@@ -67,22 +67,6 @@ img {
   margin: 20px auto;
   border-radius: 10px;
 }
-/* Permission Page*/
-.permission ul {
-  margin-top: 10px;
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-.permission li {
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.checkbox-container {
-  margin: 20px 0;
-}
 
 /* Questionnaire Page*/
 .questionnaire {

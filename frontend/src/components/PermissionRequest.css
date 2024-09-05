@@ -1,0 +1,78 @@
+.permission-page {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.permission-page h1 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.permission-page h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+.permission-page p {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.permission-page ul {
+  margin-top: 10px;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.permission-page li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.checkbox-container {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.checkbox-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.confirm-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.permission-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
