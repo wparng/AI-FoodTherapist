@@ -217,6 +217,8 @@ const Result = ({ predictionResult }) => {
         style={{
           backgroundColor: resultData.color,
           boxShadow: `0px -5px 10px ${resultData.textColor}`,
+          borderBottomLeftRadius: "20px",
+          borderBottomRightRadius: "20px",
         }}
       >
         <button onClick={() => navigate("/recommendations")}>Next</button>

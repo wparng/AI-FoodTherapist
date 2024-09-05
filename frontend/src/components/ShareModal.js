@@ -1,5 +1,5 @@
 import React from "react";
-import "./ShareModal.css"; // Create this CSS file for styling the modal
+import "./ShareModal.css";
 
 const ShareModal = ({ onClose, resultType }) => {
   const resultUrl = window.location.href;
