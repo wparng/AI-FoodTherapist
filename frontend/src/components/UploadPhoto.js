@@ -141,7 +141,7 @@ const UploadPhoto = ({ setPredictionResult }) => {
               accept="image/*"
             />
             <label htmlFor="file-input" className="file-label">
-              📷 Upload My Tongue Photo
+              Upload My Tongue Photo
             </label>
           </div>
         )}
