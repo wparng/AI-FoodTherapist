@@ -32,6 +32,7 @@ const resultsContent = {
       "This tongue type indicates a generally healthy state, with the tongue appearing slightly pale with a thin white coating. Individuals with TWF may occasionally experience mouth dryness or mild cold symptoms. They thrive on balanced, light, and nourishing foods that support overall well-being.",
     color: "#FFC6C6",
     textColor: "#A64D4B",
+    numberColor: "#51A64C",
   },
   YGF: {
     title: "YGF",
@@ -43,7 +44,7 @@ const resultsContent = {
     gutHealth: "Compromised, with tendencies toward digestive sluggishness",
     inflammation: "High - Strong signs of internal heat",
     healthCondition: "30%",
-    buddy: "A buddy to eat together",
+    buddy: "WGF - Indulgent Duo",
     buddyDescription:
       "WGF, the Deep-Fried Queen, teams up with YGF, the Spicy Prince. They love indulging, but a light meal wouldn't hurt.",
     buddyImage: "/assets/images/wgf-image.png",
@@ -51,6 +52,7 @@ const resultsContent = {
       "This tongue type suggests significant damp-heat and inflammation from a diet high in rich, greasy foods. It calls for detoxifying, cooling foods to reduce inflammation and restore balance.",
     color: " #7695FF",
     textColor: "#295F98",
+    numberColor: "#FF4848",
   },
   TYF: {
     title: "TYF",
@@ -71,6 +73,7 @@ const resultsContent = {
       "This tongue type is linked to internal heat and mild inflammation, often seen with a bitter taste and restlessness. It signals a need for cooling, detoxifying foods to maintain balance.",
     color: "#FF912C",
     textColor: "#EA6713",
+    numberColor: "#83BE49",
   },
   WGF: {
     title: "WGF",
@@ -89,6 +92,7 @@ const resultsContent = {
       "This tongue type is characterized by heaviness, bloating, poor appetite, nausea, and loose or sticky stools. It reflects a need to address these symptoms and restore digestive balance.",
     color: "#78B7D0",
     textColor: "#16325B",
+    numberColor: "#FF720D",
   },
 };
 
@@ -172,13 +176,17 @@ const Result = ({ predictionResult }) => {
             <h3 style={{ backgroundColor: resultData.textColor }}>
               Inflammation Levels
             </h3>
-            <p>{resultData.inflammation}</p>
+            <p style={{ color: resultData.numberColor }}>
+              {resultData.inflammation}
+            </p>
           </div>
           <div className="result-detail condition">
             <h3 style={{ backgroundColor: resultData.textColor }}>
               Health Condition
             </h3>
-            <p>{resultData.healthCondition}</p>
+            <p style={{ color: resultData.numberColor }}>
+              {resultData.healthCondition}
+            </p>
           </div>
         </div>
         <div className="buddy-info">

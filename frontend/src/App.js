@@ -10,7 +10,7 @@ import PermissionRequest from "./components/PermissionRequest";
 import Result from "./components/Result";
 
 function App() {
-  const [predictionResult, setPredictionResult] = useState("YGF");
+  const [predictionResult, setPredictionResult] = useState("TWF");
 
   return (
     <Router>
