@@ -1,357 +1,498 @@
 {
-  "food-items": [
-    {
-      "id": 1,
-      "header": "Bamboo Fungus Chicken Soup ",
-      "title": "This soup has cooling and detoxifying properties, helps nourish the yin, and is beneficial for improving digestion and overall health.",
-      "image": "/assets/images/food1.png",
-      "ingredients": [
-        "1 chicken, cut into pieces",
-        "30g bamboo fungus (also known as bamboo pith), soaked and roots removed",
-        "5 slices of ginger",
-        "6 cups of water",
-        "Salt to taste"
-      ],
-      "steps": [
-        {
-          "step": 1,
-          "title": "Prepare the Chicken",
-          "details": [
-            "Cut the Chicken: First, cut the chicken into small pieces to ensure even cooking and easier eating.",
-            "Blanch the Chicken: Bring a pot of water to a boil, add the chicken pieces, and blanch for about 2-3 minutes. This process helps remove impurities and blood from the meat.",
-            "Rinse the Chicken: After blanching, remove the chicken pieces from the pot, rinse them with cold water to remove any remaining impurities, and set aside."
-          ]
-        },
-        {
-          "step": 2,
-          "title": "Prepare the Bamboo Fungus",
-          "details": [
-            "Soak the Bamboo Fungus: If using dried bamboo fungus, soak it in warm water for about 20-30 minutes until it softens. After soaking, gently squeeze out excess water.",
-            "Remove the Roots: Trim off the roots of the bamboo fungus as they may be tough and difficult to chew."
-          ]
-        },
-        {
-          "step": 3,
-          "title": "Combine Ingredients",
-          "details": [
-            "Place in Pot: In a large pot, add the blanched chicken pieces, soaked bamboo fungus, and ginger slices.",
-            "Add Water: Pour in 6 cups of water, ensuring that all ingredients are submerged."
-          ]
-        },
-        {
-          "step": 4,
-          "title": "Cook the Soup",
-          "details": [
-            "Bring to a Boil: Place the pot on medium-high heat and bring the mixture to a boil.",
-            "Simmer: Once boiling, reduce the heat to low, cover the pot, and simmer for about 1.5 hours. This slow cooking process helps the flavors meld and makes the chicken tender."
-          ]
-        },
-        {
-          "step": 5,
-          "title": "Season",
-          "details": [
-            "Add Salt: After simmering for 1.5 hours, taste the soup and add salt as needed, stirring well to ensure even seasoning."
-          ]
-        },
-        {
-          "step": 6,
-          "title": "Serve",
-          "details": [
-            "Serve Warm: Ladle the soup into bowls and serve while hot. This soup is best enjoyed fresh, with tender chicken and delicate bamboo fungus providing a light yet nourishing meal."
-          ]
-        }
-      ],
-      "notes": [
-        "Choice of Chicken: You can use a whole chicken or specific parts like thighs or breasts. If using a whole chicken, cut it into small pieces for more even cooking.",
-        "Handling Bamboo Fungus: Bamboo fungus needs to be fully soaked and roots removed to ensure it is soft. Its excellent flavor absorption properties enhance the soup's taste.",
-        "Storage: If you have leftovers, the soup can be refrigerated for 2-3 days. Reheating intensifies the flavors."
-      ],
-      "funFact": "Bamboo Fungus as a Delicacy: Bamboo fungus, also known as 'bamboo pith,' is a highly prized ingredient in Chinese cuisine. It is valued not only for its unique texture and ability to absorb flavors but also for its health benefits, which include boosting the immune system, aiding digestion, and providing antioxidant properties."
-    },
-    {
-      "id": 2,
-      "header": "Cold Dandelion Salad ",
-      "title": "This soup has cooling and detoxifying properties, helps nourish the yin, and is beneficial for improving digestion and overall health.",
-      "image": "/assets/images/food2.png",
-      "ingredients": [
-        "1 chicken, cut into pieces",
-        "30g bamboo fungus (also known as bamboo pith), soaked and roots removed",
-        "5 slices of ginger",
-        "6 cups of water",
-        "Salt to taste"
-      ],
-      "steps": [
-        {
-          "step": 1,
-          "title": "Prepare the Chicken",
-          "details": [
-            "Cut the Chicken: First, cut the chicken into small pieces to ensure even cooking and easier eating.",
-            "Blanch the Chicken: Bring a pot of water to a boil, add the chicken pieces, and blanch for about 2-3 minutes. This process helps remove impurities and blood from the meat.",
-            "Rinse the Chicken: After blanching, remove the chicken pieces from the pot, rinse them with cold water to remove any remaining impurities, and set aside."
-          ]
-        },
-        {
-          "step": 2,
-          "title": "Prepare the Bamboo Fungus",
-          "details": [
-            "Soak the Bamboo Fungus: If using dried bamboo fungus, soak it in warm water for about 20-30 minutes until it softens. After soaking, gently squeeze out excess water.",
-            "Remove the Roots: Trim off the roots of the bamboo fungus as they may be tough and difficult to chew."
-          ]
-        },
-        {
-          "step": 3,
-          "title": "Combine Ingredients",
-          "details": [
-            "Place in Pot: In a large pot, add the blanched chicken pieces, soaked bamboo fungus, and ginger slices.",
-            "Add Water: Pour in 6 cups of water, ensuring that all ingredients are submerged."
-          ]
-        },
-        {
-          "step": 4,
-          "title": "Cook the Soup",
-          "details": [
-            "Bring to a Boil: Place the pot on medium-high heat and bring the mixture to a boil.",
-            "Simmer: Once boiling, reduce the heat to low, cover the pot, and simmer for about 1.5 hours. This slow cooking process helps the flavors meld and makes the chicken tender."
-          ]
-        },
-        {
-          "step": 5,
-          "title": "Season",
-          "details": [
-            "Add Salt: After simmering for 1.5 hours, taste the soup and add salt as needed, stirring well to ensure even seasoning."
-          ]
-        },
-        {
-          "step": 6,
-          "title": "Serve",
-          "details": [
-            "Serve Warm: Ladle the soup into bowls and serve while hot. This soup is best enjoyed fresh, with tender chicken and delicate bamboo fungus providing a light yet nourishing meal."
-          ]
-        }
-      ],
-      "notes": [
-        "Choice of Chicken: You can use a whole chicken or specific parts like thighs or breasts. If using a whole chicken, cut it into small pieces for more even cooking.",
-        "Handling Bamboo Fungus: Bamboo fungus needs to be fully soaked and roots removed to ensure it is soft. Its excellent flavor absorption properties enhance the soup's taste.",
-        "Storage: If you have leftovers, the soup can be refrigerated for 2-3 days. Reheating intensifies the flavors."
-      ],
-      "funFact": "Bamboo Fungus as a Delicacy: Bamboo fungus, also known as 'bamboo pith,' is a highly prized ingredient in Chinese cuisine. It is valued not only for its unique texture and ability to absorb flavors but also for its health benefits, which include boosting the immune system, aiding digestion, and providing antioxidant properties."
-    },
-    {
-      "id": 3,
-      "header": "MOMO  ",
-      "title": "This soup has cooling and detoxifying properties, helps nourish the yin, and is beneficial for improving digestion and overall health.",
-      "image": "/assets/images/food3.png",
-      "ingredients": [
-        "1 chicken, cut into pieces",
-        "30g bamboo fungus (also known as bamboo pith), soaked and roots removed",
-        "5 slices of ginger",
-        "6 cups of water",
-        "Salt to taste"
-      ],
-      "steps": [
-        {
-          "step": 1,
-          "title": "Prepare the Chicken",
-          "details": [
-            "Cut the Chicken: First, cut the chicken into small pieces to ensure even cooking and easier eating.",
-            "Blanch the Chicken: Bring a pot of water to a boil, add the chicken pieces, and blanch for about 2-3 minutes. This process helps remove impurities and blood from the meat.",
-            "Rinse the Chicken: After blanching, remove the chicken pieces from the pot, rinse them with cold water to remove any remaining impurities, and set aside."
-          ]
-        },
-        {
-          "step": 2,
-          "title": "Prepare the Bamboo Fungus",
-          "details": [
-            "Soak the Bamboo Fungus: If using dried bamboo fungus, soak it in warm water for about 20-30 minutes until it softens. After soaking, gently squeeze out excess water.",
-            "Remove the Roots: Trim off the roots of the bamboo fungus as they may be tough and difficult to chew."
-          ]
-        },
-        {
-          "step": 3,
-          "title": "Combine Ingredients",
-          "details": [
-            "Place in Pot: In a large pot, add the blanched chicken pieces, soaked bamboo fungus, and ginger slices.",
-            "Add Water: Pour in 6 cups of water, ensuring that all ingredients are submerged."
-          ]
-        },
-        {
-          "step": 4,
-          "title": "Cook the Soup",
-          "details": [
-            "Bring to a Boil: Place the pot on medium-high heat and bring the mixture to a boil.",
-            "Simmer: Once boiling, reduce the heat to low, cover the pot, and simmer for about 1.5 hours. This slow cooking process helps the flavors meld and makes the chicken tender."
-          ]
-        },
-        {
-          "step": 5,
-          "title": "Season",
-          "details": [
-            "Add Salt: After simmering for 1.5 hours, taste the soup and add salt as needed, stirring well to ensure even seasoning."
-          ]
-        },
-        {
-          "step": 6,
-          "title": "Serve",
-          "details": [
-            "Serve Warm: Ladle the soup into bowls and serve while hot. This soup is best enjoyed fresh, with tender chicken and delicate bamboo fungus providing a light yet nourishing meal."
-          ]
-        }
-      ],
-      "notes": [
-        "Choice of Chicken: You can use a whole chicken or specific parts like thighs or breasts. If using a whole chicken, cut it into small pieces for more even cooking.",
-        "Handling Bamboo Fungus: Bamboo fungus needs to be fully soaked and roots removed to ensure it is soft. Its excellent flavor absorption properties enhance the soup's taste.",
-        "Storage: If you have leftovers, the soup can be refrigerated for 2-3 days. Reheating intensifies the flavors."
-      ],
-      "funFact": "Bamboo Fungus as a Delicacy: Bamboo fungus, also known as 'bamboo pith,' is a highly prized ingredient in Chinese cuisine. It is valued not only for its unique texture and ability to absorb flavors but also for its health benefits, which include boosting the immune system, aiding digestion, and providing antioxidant properties."
-    }
-  ],
-  "herbal-tea-recommendation": [
-    {
-      "id": 1,
-      "header": "Chamomile Tea",
-      "title": "Chamomile tea is known for its calming effects and is often used to help with sleep and relaxation. It is also beneficial for digestive health and can help reduce stress.",
-      "image": "/assets/images/tea1.png",
-      "ingredients": [
-        "2 teaspoons of dried chamomile flowers",
-        "1 cup of boiling water",
-        "1 teaspoon of honey (optional)",
-        "Lemon slice (optional)"
-      ],
-      "steps": [
-        {
-          "step": 1,
-          "title": "Boil Water",
-          "details": [
-            "Heat water until it reaches a rolling boil. This ensures that the chamomile flowers are fully steeped."
-          ]
-        },
-        {
-          "step": 2,
-          "title": "Steep Chamomile",
-          "details": [
-            "Place the dried chamomile flowers in a tea infuser or directly in your cup.",
-            "Pour the boiling water over the chamomile and let it steep for 5-7 minutes."
-          ]
-        },
-        {
-          "step": 3,
-          "title": "Add Flavor",
-          "details": [
-            "If desired, add a teaspoon of honey and a slice of lemon to enhance the flavor of the tea."
-          ]
-        },
-        {
-          "step": 4,
-          "title": "Serve",
-          "details": [
-            "Remove the tea infuser or strain the flowers from the cup.",
-            "Serve warm and enjoy the soothing effects of chamomile tea."
-          ]
-        }
-      ],
-      "notes": [
-        "For a stronger flavor, steep the chamomile flowers for a few extra minutes.",
-        "Chamomile tea is caffeine-free and can be enjoyed at any time of the day."
-      ],
-      "funFact": "Chamomile tea has been used for centuries as a natural remedy to promote relaxation and support digestive health. The soothing effects are attributed to the antioxidants and anti-inflammatory properties of chamomile."
-    },
-    {
-      "id": 2,
-      "header": "Peppermint Tea",
-      "title": "Peppermint tea is refreshing and is known for its ability to aid digestion and relieve headaches. It has a cooling effect and is also beneficial for respiratory health.",
-      "image": "/assets/images/food1.png",
-      "ingredients": [
-        "1 handful of fresh peppermint leaves or 2 teaspoons of dried peppermint",
-        "1 cup of boiling water",
-        "1 teaspoon of honey (optional)",
-        "Mint sprig for garnish (optional)"
-      ],
-      "steps": [
-        {
-          "step": 1,
-          "title": "Boil Water",
-          "details": [
-            "Heat water until it reaches a rolling boil to extract the full flavor from the peppermint."
-          ]
-        },
-        {
-          "step": 2,
-          "title": "Steep Peppermint",
-          "details": [
-            "Place the peppermint leaves in a tea infuser or directly in your cup.",
-            "Pour the boiling water over the peppermint and let it steep for 5-7 minutes."
-          ]
-        },
-        {
-          "step": 3,
-          "title": "Add Flavor",
-          "details": [
-            "If desired, add a teaspoon of honey for a touch of sweetness."
-          ]
-        },
-        {
-          "step": 4,
-          "title": "Serve",
-          "details": [
-            "Remove the tea infuser or strain the leaves from the cup.",
-            "Garnish with a mint sprig if desired and serve warm."
-          ]
-        }
-      ],
-      "notes": [
-        "Peppermint tea can be enjoyed hot or cold, making it a versatile beverage.",
-        "It's particularly refreshing in the summer when served chilled."
-      ],
-      "funFact": "Peppermint tea is known for its digestive benefits, including soothing indigestion and relieving nausea. The menthol in peppermint also provides a cooling sensation that can help clear the respiratory passages."
-    },
-    {
-      "id": 3,
-      "header": "Ginger-Lemon Tea",
-      "title": "Ginger-lemon tea is invigorating and known for its ability to boost the immune system and aid digestion. It's also beneficial for relieving nausea and improving circulation.",
-      "image": "/assets/images/food1.png",
-      "ingredients": [
-        "1-inch piece of fresh ginger, sliced",
-        "1 lemon, sliced",
-        "1 cup of boiling water",
-        "1 teaspoon of honey (optional)"
-      ],
-      "steps": [
-        {
-          "step": 1,
-          "title": "Prepare Ginger and Lemon",
-          "details": [
-            "Slice the fresh ginger into thin pieces and cut the lemon into slices."
-          ]
-        },
-        {
-          "step": 2,
-          "title": "Boil Water",
-          "details": ["Heat water until it reaches a rolling boil."]
-        },
-        {
-          "step": 3,
-          "title": "Steep Ingredients",
-          "details": [
-            "Place the ginger slices and lemon slices in your cup.",
-            "Pour the boiling water over them and let it steep for 5-10 minutes."
-          ]
-        },
-        {
-          "step": 4,
-          "title": "Add Flavor",
-          "details": ["If desired, add a teaspoon of honey for sweetness."]
-        },
-        {
-          "step": 5,
-          "title": "Serve",
-          "details": ["Remove the slices from the cup and serve warm."]
-        }
-      ],
-      "notes": [
-        "For a spicier tea, add more ginger slices or let it steep longer.",
-        "Ginger-lemon tea can also be enjoyed cold; simply refrigerate after steeping."
-      ],
-      "funFact": "Ginger has been used for centuries for its medicinal properties, including its ability to reduce nausea and inflammation. The combination of ginger and lemon provides a powerful boost to the immune system."
-    }
-  ]
+  "TYF": {
+    "id": 1,
+    "food-items": [
+      {
+        "id": 1,
+        "header": "Bamboo Fungus Chicken Soup ",
+        "title": "This soup has cooling and detoxifying properties, helps nourish the yin, and is beneficial for improving digestion and overall health.",
+        "image": "/assets/images/food1.png",
+        "ingredients": [
+          "1 chicken, cut into pieces",
+          "30g bamboo fungus (also known as bamboo pith), soaked and roots removed",
+          "5 slices of ginger",
+          "6 cups of water",
+          "Salt to taste"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "Prepare the Chicken",
+            "details": [
+              "Cut the Chicken: First, cut the chicken into small pieces to ensure even cooking and easier eating.",
+              "Blanch the Chicken: Bring a pot of water to a boil, add the chicken pieces, and blanch for about 2-3 minutes. This process helps remove impurities and blood from the meat.",
+              "Rinse the Chicken: After blanching, remove the chicken pieces from the pot, rinse them with cold water to remove any remaining impurities, and set aside."
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Prepare the Bamboo Fungus",
+            "details": [
+              "Soak the Bamboo Fungus: If using dried bamboo fungus, soak it in warm water for about 20-30 minutes until it softens. After soaking, gently squeeze out excess water.",
+              "Remove the Roots: Trim off the roots of the bamboo fungus as they may be tough and difficult to chew."
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Combine Ingredients",
+            "details": [
+              "Place in Pot: In a large pot, add the blanched chicken pieces, soaked bamboo fungus, and ginger slices.",
+              "Add Water: Pour in 6 cups of water, ensuring that all ingredients are submerged."
+            ]
+          },
+          {
+            "step": 4,
+            "title": "Cook the Soup",
+            "details": [
+              "Bring to a Boil: Place the pot on medium-high heat and bring the mixture to a boil.",
+              "Simmer: Once boiling, reduce the heat to low, cover the pot, and simmer for about 1.5 hours. This slow cooking process helps the flavors meld and makes the chicken tender."
+            ]
+          },
+          {
+            "step": 5,
+            "title": "Season",
+            "details": [
+              "Add Salt: After simmering for 1.5 hours, taste the soup and add salt as needed, stirring well to ensure even seasoning."
+            ]
+          },
+          {
+            "step": 6,
+            "title": "Serve",
+            "details": [
+              "Serve Warm: Ladle the soup into bowls and serve while hot. This soup is best enjoyed fresh, with tender chicken and delicate bamboo fungus providing a light yet nourishing meal."
+            ]
+          }
+        ],
+        "notes": [
+          "Choice of Chicken: You can use a whole chicken or specific parts like thighs or breasts. If using a whole chicken, cut it into small pieces for more even cooking.",
+          "Handling Bamboo Fungus: Bamboo fungus needs to be fully soaked and roots removed to ensure it is soft. Its excellent flavor absorption properties enhance the soup's taste.",
+          "Storage: If you have leftovers, the soup can be refrigerated for 2-3 days. Reheating intensifies the flavors."
+        ],
+        "funFact": "Bamboo Fungus as a Delicacy: Bamboo fungus, also known as 'bamboo pith,' is a highly prized ingredient in Chinese cuisine. It is valued not only for its unique texture and ability to absorb flavors but also for its health benefits, which include boosting the immune system, aiding digestion, and providing antioxidant properties."
+      },
+      {
+        "id": 2,
+        "header": "Cold Dandelion Salad ",
+        "title": "This soup has cooling and detoxifying properties, helps nourish the yin, and is beneficial for improving digestion and overall health.",
+        "image": "/assets/images/food2.png",
+        "ingredients": [
+          "1 chicken, cut into pieces",
+          "30g bamboo fungus (also known as bamboo pith), soaked and roots removed",
+          "5 slices of ginger",
+          "6 cups of water",
+          "Salt to taste"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "Prepare the Chicken",
+            "details": [
+              "Cut the Chicken: First, cut the chicken into small pieces to ensure even cooking and easier eating.",
+              "Blanch the Chicken: Bring a pot of water to a boil, add the chicken pieces, and blanch for about 2-3 minutes. This process helps remove impurities and blood from the meat.",
+              "Rinse the Chicken: After blanching, remove the chicken pieces from the pot, rinse them with cold water to remove any remaining impurities, and set aside."
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Prepare the Bamboo Fungus",
+            "details": [
+              "Soak the Bamboo Fungus: If using dried bamboo fungus, soak it in warm water for about 20-30 minutes until it softens. After soaking, gently squeeze out excess water.",
+              "Remove the Roots: Trim off the roots of the bamboo fungus as they may be tough and difficult to chew."
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Combine Ingredients",
+            "details": [
+              "Place in Pot: In a large pot, add the blanched chicken pieces, soaked bamboo fungus, and ginger slices.",
+              "Add Water: Pour in 6 cups of water, ensuring that all ingredients are submerged."
+            ]
+          },
+          {
+            "step": 4,
+            "title": "Cook the Soup",
+            "details": [
+              "Bring to a Boil: Place the pot on medium-high heat and bring the mixture to a boil.",
+              "Simmer: Once boiling, reduce the heat to low, cover the pot, and simmer for about 1.5 hours. This slow cooking process helps the flavors meld and makes the chicken tender."
+            ]
+          },
+          {
+            "step": 5,
+            "title": "Season",
+            "details": [
+              "Add Salt: After simmering for 1.5 hours, taste the soup and add salt as needed, stirring well to ensure even seasoning."
+            ]
+          },
+          {
+            "step": 6,
+            "title": "Serve",
+            "details": [
+              "Serve Warm: Ladle the soup into bowls and serve while hot. This soup is best enjoyed fresh, with tender chicken and delicate bamboo fungus providing a light yet nourishing meal."
+            ]
+          }
+        ],
+        "notes": [
+          "Choice of Chicken: You can use a whole chicken or specific parts like thighs or breasts. If using a whole chicken, cut it into small pieces for more even cooking.",
+          "Handling Bamboo Fungus: Bamboo fungus needs to be fully soaked and roots removed to ensure it is soft. Its excellent flavor absorption properties enhance the soup's taste.",
+          "Storage: If you have leftovers, the soup can be refrigerated for 2-3 days. Reheating intensifies the flavors."
+        ],
+        "funFact": "Bamboo Fungus as a Delicacy: Bamboo fungus, also known as 'bamboo pith,' is a highly prized ingredient in Chinese cuisine. It is valued not only for its unique texture and ability to absorb flavors but also for its health benefits, which include boosting the immune system, aiding digestion, and providing antioxidant properties."
+      }
+    ],
+    "herbal-tea-recommendation": [
+      {
+        "id": 1,
+        "header": "Huang Qi and Sheng Jiang Tea",
+        "title": "",
+        "image": "/assets/images/tea1.png",
+        "ingredients": [
+          "Astragalus: 10g ",
+          "Fresh Ginger: a few slices",
+          "Honey (optional)",
+          "Water: 500ml"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "Prepare Ingredients: ",
+            "details": [
+              "Rinse the Astragalus and ginger with water to remove surface impurities."
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Boil the Tea: ",
+            "details": [
+              "Place the Astragalus and ginger in a pot, add 500ml of water. Bring to a boil over medium heat, then reduce to low heat and simmer for 15-20 minutes."
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Strain:",
+            "details": [
+              "Pour the tea into a cup through a strainer, discarding solids. If you prefer a sweeter taste, add honey to taste."
+            ]
+          },
+          {
+            "step": 4,
+            "title": "Enjoy: ",
+            "details": [
+              "Let the tea cool slightly before drinking. This tea is ideal for drinking 1-2 times a day, especially after meals."
+            ]
+          }
+        ],
+
+        "funFact": [
+          "Both Huang Qi and ginger have been used in Chinese medicine for thousands of years. Astragalus was first recorded in the “Shennong Ben Cao Jing” (an ancient Chinese medicinal text) over 2,000 years ago. Huang Qi is considered an adaptogen, meaning it helps the body adapt to stress and restore balance. This makes the tea a great choice for maintaining health during times of physical or mental stress."
+        ]
+      },
+      {
+        "id": 2,
+        "header": "Hawthorn and Tangerine Peel Tea",
+        "title": "",
+        "image": "/assets/images/tea1.png",
+        "ingredients": [
+          "Hawthorn (Shan Zha): 10g",
+          "Dried Tangerine Peel: 5g ",
+          "Honey (optional)",
+          "Water: 500ml"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "Prepare Ingredients: ",
+            "details": [
+              "Rinse the Hawthorn and Tangerine Peel with water to remove surface impurities."
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Boil the Tea: ",
+            "details": [
+              "Place the Hawthorn and Tangerine Peel in a pot, add 500ml of water. Bring to a boil over medium heat, then reduce to low heat and simmer for 15-20 minutes."
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Strain:",
+            "details": [
+              "Pour the tea into a cup through a strainer, discarding solids. If you prefer a sweeter taste, add honey to taste."
+            ]
+          },
+          {
+            "step": 4,
+            "title": "Enjoy: ",
+            "details": [
+              "Let the tea cool slightly before drinking. This tea is ideal for drinking 1-2 times a day, especially after meals."
+            ]
+          }
+        ],
+
+        "funFact": [
+          "Hawthorn has been used for centuries in Traditional Chinese Medicine (TCM) as a natural remedy to help digest heavy, fatty foods. It's often consumed after meals to alleviate bloating and indigestion. The dried tangerine peel used in this tea becomes more potent and aromatic with age. High-quality aged tangerine peel can be expensive and highly prized in Chinese cuisine and medicine."
+        ]
+      }
+    ]
+  },
+  "TWF": {
+    "id": 1,
+    "food-items": [
+      {
+        "id": 1,
+        "header": "Yam and Lotus Seed Porridge",
+        "title": "Yam, also known as the food of the gods, is highly nutritious. Below is a simple recipe for Yam and Lotus Seed Porridge:",
+        "image": "/assets/images/food1.png",
+        "ingredients": [
+          "Yam: 100g",
+          "Lotus seeds: 30g",
+          "Rice: 50g",
+          "Goji berries: 10 pieces",
+          "Rock sugar: to taste"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "",
+            "details": [
+              "Peel the yam and cut it into pieces. Soak the lotus seeds in advance.",
+              "Wash the rice.",
+              "Add all the ingredients to a pot, add an appropriate amount of water, bring to a boil over high heat, then reduce the heat and simmer until the porridge is thick.",
+              "Add rock sugar to taste."
+            ]
+          }
+        ],
+        "notes": [
+          "Yam has the effects of invigorating the spleen and qi, nourishing yin, and moisturizing the lungs. Lotus seeds can strengthen the spleen and stop diarrhea, nourish the heart, and calm the mind. Red dates and goji berries can nourish qi and blood.",
+          "This porridge has a soft and glutinous texture and is easy to digest and absorb, making it suitable for people with weak spleen and stomach.",
+          "You can adjust the amount of ingredients according to your personal taste."
+        ],
+        "funFact": [
+          "A Nutrient Powerhouse: Despite its similarity to sweet potatoes, yam is packed with a wide range of vitamins, minerals, and starch-digesting enzymes.",
+          "A Protective Mucilage: Yam contains abundant mucin, a slimy substance that acts as a protective barrier for the stomach, making it beneficial for those with stomach ulcers.",
+          "A Beauty Booster: The mucin in yam can also moisturize the skin and delay aging, making it a natural beauty enhancer.",
+          "Kidney and Sexual Health: In traditional Chinese medicine, yam is believed to strengthen the kidneys and improve sexual function.",
+          "A Sleep Aid: Yam can nourish the heart and calm the mind, making it a great option for those struggling with insomnia.",
+          "Blood Sugar Management: Studies suggest that the mucin in yam can slow down the absorption of sugar, making it beneficial for people with diabetes.",
+          "A Weight Loss Ally: Yam is rich in dietary fiber, which can increase feelings of fullness and reduce calorie intake, aiding in weight loss."
+        ]
+      },
+      {
+        "id": 2,
+        "header": "Red Date and Longan Porridge",
+        "title": "Longan, also known as dragon eye, is a highly nutritious delicacy with the reputation of being the lychee in fruits and the longan in meat.",
+        "image": "/assets/images/food2.png",
+        "ingredients": [
+          "Red dates: 10 pieces",
+          "Longan meat: 20g",
+          "Rice: 50g",
+          "Glutinous rice: 20g",
+          "Rock sugar: to taste"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "",
+            "details": [
+              "Remove the pits from the red dates and wash the longan meat.",
+              "Wash the rice and glutinous rice.",
+              "Add all the ingredients to a pot, add an appropriate amount of water, bring to a boil over high heat, then reduce the heat and simmer until the porridge is thick.",
+              "Add rock sugar to taste."
+            ]
+          }
+        ],
+        "notes": [
+          "Both red dates and longan meat have the effect of nourishing qi and blood, and glutinous rice can replenish the middle and benefit qi.",
+          "This porridge warms and tonifies qi and blood, making it suitable for people with qi and blood deficiency.",
+          "You can add a little ginger to the porridge to increase the warming effect."
+        ],
+        "funFact": [
+          "Nature's Vitamin Pill: Red dates are rich in vitamin C, making them a natural vitamin pill that can boost the immune system.",
+          "Blood-enriching Gem: Red dates are warm in nature and sweet in taste, entering the spleen and stomach meridians. They have the functions of invigorating the middle and supplementing qi, nourishing blood, and calming the mind, making them a traditional tonic for blood.",
+          "Fruit of Longevity: Since ancient times, red dates have been regarded as the fruit of longevity and are often used to make nourishing and health-promoting foods."
+        ]
+      }
+    ],
+
+    "herbal-tea-recommendation": [
+      {
+        "id": 1,
+        "header": "Huang Qi and Sheng Jiang Tea",
+        "title": "",
+        "image": "/assets/images/tea1.png",
+        "ingredients": [
+          "Astragalus: 10g ",
+          "Fresh Ginger: a few slices",
+          "Honey (optional)",
+          "Water: 500ml"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "Prepare Ingredients: ",
+            "details": [
+              "Rinse the Astragalus and ginger with water to remove surface impurities."
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Boil the Tea: ",
+            "details": [
+              "Place the Astragalus and ginger in a pot, add 500ml of water. Bring to a boil over medium heat, then reduce to low heat and simmer for 15-20 minutes."
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Strain:",
+            "details": [
+              "Pour the tea into a cup through a strainer, discarding solids. If you prefer a sweeter taste, add honey to taste."
+            ]
+          },
+          {
+            "step": 4,
+            "title": "Enjoy: ",
+            "details": [
+              "Let the tea cool slightly before drinking. This tea is ideal for drinking 1-2 times a day, especially after meals."
+            ]
+          }
+        ],
+
+        "funFact": [
+          "Both Huang Qi and ginger have been used in Chinese medicine for thousands of years. Astragalus was first recorded in the “Shennong Ben Cao Jing” (an ancient Chinese medicinal text) over 2,000 years ago. Huang Qi is considered an adaptogen, meaning it helps the body adapt to stress and restore balance. This makes the tea a great choice for maintaining health during times of physical or mental stress."
+        ]
+      },
+      {
+        "id": 2,
+        "header": "Hawthorn and Tangerine Peel Tea",
+        "title": "",
+        "image": "/assets/images/tea1.png",
+        "ingredients": [
+          "Hawthorn (Shan Zha): 10g",
+          "Dried Tangerine Peel: 5g ",
+          "Honey (optional)",
+          "Water: 500ml"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "Prepare Ingredients: ",
+            "details": [
+              "Rinse the Hawthorn and Tangerine Peel with water to remove surface impurities."
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Boil the Tea: ",
+            "details": [
+              "Place the Hawthorn and Tangerine Peel in a pot, add 500ml of water. Bring to a boil over medium heat, then reduce to low heat and simmer for 15-20 minutes."
+            ]
+          },
+          {
+            "step": 3,
+            "title": "Strain:",
+            "details": [
+              "Pour the tea into a cup through a strainer, discarding solids. If you prefer a sweeter taste, add honey to taste."
+            ]
+          },
+          {
+            "step": 4,
+            "title": "Enjoy: ",
+            "details": [
+              "Let the tea cool slightly before drinking. This tea is ideal for drinking 1-2 times a day, especially after meals."
+            ]
+          }
+        ],
+
+        "funFact": [
+          "Hawthorn has been used for centuries in Traditional Chinese Medicine (TCM) as a natural remedy to help digest heavy, fatty foods. It's often consumed after meals to alleviate bloating and indigestion. The dried tangerine peel used in this tea becomes more potent and aromatic with age. High-quality aged tangerine peel can be expensive and highly prized in Chinese cuisine and medicine."
+        ]
+      },
+      {
+        "id": 3,
+        "header": "Party Ginseng and Pig Stomach Soup",
+        "title": "Party Ginseng and Pig Stomach Soup is a traditional Chinese medicinal food known for its ability to tonify the spleen and stomach, invigorate qi, and improve appetite. It is particularly beneficial for those with weak digestion, loss of appetite, and chronic fatigue.",
+        "image": "/assets/images/food3.png",
+        "ingredients": [
+          "Pig stomach: 500g",
+          "Party ginseng: 10g",
+          "Ginger: 3 slices",
+          "Cooking wine: appropriate amount",
+          "Salt: to taste"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "Clean and Prepare Ingredients",
+            "details": [
+              "Clean the pig stomach: Thoroughly clean the pig stomach inside and out with salt and vinegar. Rinse multiple times with cold water until there is no odor.",
+              "Blanch the pig stomach: Cut the pig stomach into large pieces and blanch them in boiling water for 5 minutes. Remove and rinse with cold water.",
+              "Soak the party ginseng: Soak the party ginseng in cold water for 30 minutes."
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Simmer the Soup",
+            "details": [
+              "Add the pig stomach, party ginseng, ginger, and cooking wine to a pot.",
+              "Add enough water to cover all the ingredients. Bring to a boil over high heat, then reduce the heat and simmer for 1.5-2 hours.",
+              "Season with salt to taste and serve hot."
+            ]
+          }
+        ],
+        "notes": [
+          "Benefits of party ginseng and pig stomach: Party ginseng tonifies the spleen and qi, while pig stomach nourishes the stomach and spleen. Together, they help strengthen the digestive system and improve appetite.",
+          "Suitable for: People with spleen and stomach qi deficiency, loss of appetite, chronic fatigue, and poor digestion.",
+          "Other ingredients: You can add other ingredients according to your personal taste, such as Chinese dates or wolfberries."
+        ],
+        "funFact": [
+          "A Therapeutic Blend: Party ginseng and pig stomach soup is a traditional Chinese medicinal food renowned for its therapeutic benefits. It is particularly effective in strengthening the spleen and stomach, two vital organs involved in digestion and overall health.",
+          "Suitable for All Ages: This soup is not just for the elderly. It can benefit people of all ages, especially those experiencing digestive discomfort or fatigue.",
+          "A Versatile Recipe: The recipe for this soup can be easily customized to suit individual needs and preferences.",
+          "A Power Couple for Gut Health: Party ginseng and pig stomach are like the dynamic duo for your digestive system. Together, they work wonders in strengthening your spleen and stomach. And guess what? It's not just for grandma and grandpa! Whether you're a young adult dealing with late nights or just feeling under the weather, this soup can give you the boost you need."
+        ]
+      },
+      {
+        "id": 4,
+        "header": "Astragalus Chicken Soup",
+        "title": "Astragalus is a traditional Chinese medicine known as the 'sacred herb for replenishing qi.'",
+        "image": "/assets/images/food4.png",
+        "ingredients": [
+          "Astragalus: 10g",
+          "Chicken: 500g",
+          "Ginger: 3 slices",
+          "Salt: to taste"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "title": "Prepare Ingredients",
+            "details": [
+              "Soak the astragalus in water for 30 minutes.",
+              "Wash the chicken and cut it into pieces, then blanch it."
+            ]
+          },
+          {
+            "step": 2,
+            "title": "Cook the Soup",
+            "details": [
+              "Add the astragalus, chicken, and ginger to a pot.",
+              "Add an appropriate amount of water, bring to a boil over high heat, then reduce heat and simmer for about 1 hour.",
+              "Add salt to taste."
+            ]
+          }
+        ],
+        "notes": [
+          "Astragalus has the effects of invigorating qi, elevating yang, and consolidating the exterior to stop sweating, while chicken can replenish the middle and benefit qi.",
+          "This soup tonifies qi and strengthens the spleen, making it suitable for people with qi deficiency and fatigue.",
+          "You can add other ingredients according to your personal taste, such as red dates and goji berries."
+        ],
+        "funFact": [
+          "The Saint of Qi-tonifying Herbs: Astragalus is known as the 'saint of qi-tonifying herbs' and is one of the most commonly used qi-tonifying herbs in traditional Chinese medicine. It can enhance the body's immune system.",
+          "Thousand-year Ginseng: Some people call astragalus 'thousand-year ginseng.' Although their functions are different, both have excellent tonic effects.",
+          "Consolidating the Exterior and Stopping Sweating: Astragalus can consolidate the exterior and stop sweating, making it effective for symptoms such as spontaneous sweating, night sweats, and excessive sweating due to physical weakness.",
+          "Promoting Diuresis and Reducing Swelling: Astragalus has the effect of promoting diuresis and reducing swelling, and can be used as an adjunct treatment for edema and difficulty urinating.",
+          "Diverse Varieties of Astragalus: There are many varieties of astragalus, such as membranous astragalus and Mongolian astragalus. Different varieties have slightly different medicinal effects."
+        ]
+      }
+    ]
+  }
 }
