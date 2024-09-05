@@ -35,7 +35,7 @@ const resultsContent = {
     buddyImage: "/assets/images/tyf-image.png",
     detailedInfo:
       "This tongue type indicates a generally healthy state, with the tongue appearing slightly pale with a thin white coating. Individuals with TWF may occasionally experience mouth dryness or mild cold symptoms. They thrive on balanced, light, and nourishing foods that support overall well-being.",
-    color: "#FFC6C6",
+    color: "#F9E2D2",
     textColor: "#A64D4B",
     numberColor: "#51A64C",
   },
@@ -55,7 +55,7 @@ const resultsContent = {
     buddyImage: "/assets/images/wgf-image.png",
     detailedInfo:
       "This tongue type suggests significant damp-heat and inflammation from a diet high in rich, greasy foods. It calls for detoxifying, cooling foods to reduce inflammation and restore balance.",
-    color: " #7695FF",
+    color: " #9DBDFF",
     textColor: "#295F98",
     numberColor: "#FF4848",
   },
@@ -76,7 +76,7 @@ const resultsContent = {
     buddyImage: "/assets/images/ygf-image.png",
     detailedInfo:
       "This tongue type is linked to internal heat and mild inflammation, often seen with a bitter taste and restlessness. It signals a need for cooling, detoxifying foods to maintain balance.",
-    color: "#FF912C",
+    color: "#E85C0D",
     textColor: "#EA6713",
     numberColor: "#83BE49",
   },
@@ -95,7 +95,7 @@ const resultsContent = {
     buddyImage: "/assets/images/ygf-image.png",
     detailedInfo:
       "This tongue type is characterized by heaviness, bloating, poor appetite, nausea, and loose or sticky stools. It reflects a need to address these symptoms and restore digestive balance.",
-    color: "#78B7D0",
+    color: "#227B94",
     textColor: "#16325B",
     numberColor: "#FF720D",
   },
@@ -216,9 +216,9 @@ const Result = ({ predictionResult }) => {
         className="next-btn"
         style={{
           backgroundColor: resultData.color,
-          boxShadow: `0px -5px 10px ${resultData.textColor}`,
-          borderBottomLeftRadius: "20px",
-          borderBottomRightRadius: "20px",
+          boxShadow: `0px -5px 10px ${resultData.color}`,
+          borderBottomLeftRadius: "15px",
+          borderBottomRightRadius: "15px",
         }}
       >
         <button onClick={() => navigate("/recommendations")}>Next</button>
