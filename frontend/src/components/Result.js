@@ -11,7 +11,12 @@ const tongueImages = {
   TYF: "/assets/images/tyf-image.png",
   WGF: "/assets/images/wgf-image.png",
 };
-
+const gradientColors = {
+  TWF: "linear-gradient(0deg, #F9E2D2, #FFC6C6)",
+  YGF: "linear-gradient(0deg, #9DBDFF, #7695FF)",
+  TYF: "linear-gradient(0deg, #E85C0D, #FABC3F)",
+  WGF: "linear-gradient(0deg, #227B94, #78B7D0)",
+};
 const resultsContent = {
   TWF: {
     title: "TWF",
@@ -133,7 +138,9 @@ const Result = ({ predictionResult }) => {
   return (
     <div
       className="result-container"
-      style={{ backgroundColor: resultData.color }}
+      style={{
+        background: gradientColors[predictionResult] || "transparent", // Apply gradient based on result type
+      }}
     >
       <div className="analysis-result">
         <LuChevronLeft
