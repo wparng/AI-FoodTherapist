@@ -4,24 +4,27 @@ import "./FoodDetail.css";
 
 const FoodDetails = () => {
   const { type, id } = useParams();
-  console.log(type, "immm tt");
+
   const [itemData, setItemData] = useState(null);
+  const [filteredItem, setfilteredItem] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    const pathAfterLocalhost = window.location.pathname.split("/")[1]; // Get 'TYF' or 'TWF'
+
     const fetchData = async () => {
       try {
         let response;
+        const baseURL = `http://localhost:5000/${pathAfterLocalhost}`;
+
         if (type === "food") {
-          console.log(type, "immm tt");
-          response = await fetch(`http://localhost:5000/food-items/${id}`);
+          response = await fetch(baseURL);
         } else if (type === "tea") {
-          response = await fetch(
-            `http://localhost:5000/herbal-tea-recommendation/${id}`
-          );
+          response = await fetch(baseURL);
         } else {
           throw new Error("Invalid type");
         }
@@ -31,8 +34,22 @@ const FoodDetails = () => {
         }
 
         const item = await response.json();
+        let data = item;
         setItemData(item);
         setLoading(false);
+
+        // Filter the data based on the type and id
+        let filteredItem;
+        if (type === "food") {
+          filteredItem = data["food-items"].find(
+            (item) => item.id === parseInt(id)
+          );
+        } else if (type === "tea") {
+          filteredItem = data["herbal-tea-recommendation"].find(
+            (item) => item.id === parseInt(id)
+          );
+        }
+        setfilteredItem(filteredItem);
       } catch (error) {
         setError(error);
         setLoading(false);
@@ -61,25 +78,25 @@ const FoodDetails = () => {
             className="w-8 h-8"
           />
         </div>
-        <h1 className="text-2xl font-bold ml-4">{itemData.header}</h1>
+        <h1 className="text-2xl font-bold ml-4">{filteredItem.header}</h1>
       </div>
 
       <img
-        src={itemData.image}
-        alt={itemData.header}
+        src={filteredItem.image}
+        alt={filteredItem.header}
         className="w-full h-64 object-cover rounded-lg mb-4"
       />
       <div className="mb-4">
-        <p className="custom-title">{itemData.title}</p>
+        <p className="custom-title">{filteredItem.title}</p>
       </div>
 
-      {itemData.ingredients && (
+      {filteredItem.ingredients && (
         <div className="mb-4">
           <h3 className="sub-title">Ingredients</h3>
           <ul>
             <p className="sub-details ">
               {" "}
-              {itemData.ingredients.map((ingredient, index) => (
+              {filteredItem.ingredients.map((ingredient, index) => (
                 <li key={index}>{ingredient}</li>
               ))}
             </p>
@@ -87,35 +104,20 @@ const FoodDetails = () => {
         </div>
       )}
 
-      {itemData.steps && (
+      {filteredItem.steps && (
         <div className="mb-4">
-          <h3 className="text-lg font-semibold mb-4">
-            {" "}
-            {/* Spacing below the heading */}
-            Steps
-          </h3>
+          <h3 className="text-lg font-semibold mb-4"> Steps</h3>
 
-          {itemData.steps.map((step, index) => (
+          {filteredItem.steps.map((step, index) => (
             <div key={index} className="mb-4">
               {" "}
-              {/* Spacing between each step */}
-              <h4 className="font-semibold text-md mb-2">
-                {" "}
-                {/* Spacing below each step title */}
-                Step {step.step}:
-              </h4>
-              <h3 className="text-lg font-semibold mb-2">
-                {" "}
-                {/* Styling for the step title */}
-                {step.title}
-              </h3>
+              <h4 className="font-semibold text-md mb-2"> Step {step.step}:</h4>
+              <h3 className="text-lg font-semibold mb-2"> {step.title}</h3>
               <ul className="list-disc pl-5 step-detail ">
                 {" "}
-                {/* Bullet points and padding */}
                 {step.details.map((detail, subIndex) => (
                   <li key={subIndex} className="mb-1">
                     {" "}
-                    {/* Spacing between list items */}
                     {detail}
                   </li>
                 ))}
@@ -125,20 +127,14 @@ const FoodDetails = () => {
         </div>
       )}
 
-      {itemData.notes && (
+      {filteredItem.notes && (
         <div className="mb-4">
-          <h3 className="text-lg font-semibold mb-2">
-            {" "}
-            {/* Spacing below the heading */}
-            Notes
-          </h3>
+          <h3 className="text-lg font-semibold mb-2"> Notes</h3>
           <ul className="list-disc pl-5">
             {" "}
-            {/* Bullet points and padding */}
-            {itemData.notes.map((note, index) => (
+            {filteredItem.notes.map((note, index) => (
               <li key={index} className="mb-1">
                 {" "}
-                {/* Spacing between list items */}
                 {note}
               </li>
             ))}
@@ -146,10 +142,10 @@ const FoodDetails = () => {
         </div>
       )}
 
-      {itemData.funFact && (
+      {filteredItem.funFact && (
         <div className="mb-4">
           <h3 className="text-lg font-semibold">Fun Fact</h3>
-          <p>{itemData.funFact}</p>
+          <p>{filteredItem.funFact}</p>
         </div>
       )}
     </div>
