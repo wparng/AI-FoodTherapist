@@ -19,8 +19,14 @@ function App() {
           <Route path="/upload-photo" element={<UploadPhoto />} />
           <Route path="/questionnaire" element={<Questionnaire />} />
           <Route path="/result" element={<Result />} />
-          <Route path="/recommendation" element={<Recommendation />} />
-          <Route path="/food-details/:type/:id" element={<FoodDetails />} />
+          <Route path="/recommendation/:id" element={<Recommendation />} />
+
+          {/* <Route
+            path="/recommendations"
+            element={<Recommendation predictionResult={predictionResult} />}
+          /> */}
+          <Route path="TYF/:type/:id" element={<FoodDetails />} />
+          <Route path="TWF/:type/:id" element={<FoodDetails />} />
         </Routes>
       </div>
     </Router>
