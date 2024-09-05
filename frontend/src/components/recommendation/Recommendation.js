@@ -44,8 +44,6 @@ const Recommendation = ({ predictionResult }) => {
   };
 
   const handleItemClick = (id, type) => {
-    console.log("Navigating to:", `/food-details/${type}/${id}`);
-
     navigate(`/food-details/${type}/${id}`);
   };
 

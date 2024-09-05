@@ -10,7 +10,7 @@ import PermissionRequest from "./components/PermissionRequest";
 import Result from "./components/Result";
 
 function App() {
-  const [predictionResult, setPredictionResult] = useState(null);
+  const [predictionResult, setPredictionResult] = useState("TWF");
 
   return (
     <Router>
@@ -31,7 +31,10 @@ function App() {
             path="/recommendations"
             element={<Recommendation predictionResult={predictionResult} />}
           />
-          <Route path="/food-details/:type/:id" element={<FoodDetails />} />
+          <Route
+            path="/food-details/:type/:id"
+            element={<FoodDetails predictionResult={predictionResult} />}
+          />
         </Routes>
       </div>
     </Router>
