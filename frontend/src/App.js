@@ -8,6 +8,8 @@ import Recommendation from "./components/recommendation/Recommendation";
 import FoodDetails from "./components/recommendation/FoodDetail";
 import PermissionRequest from "./components/PermissionRequest";
 import Result from "./components/Result";
+//ToDo: add page not found page
+//ToDo: manage prediction as context
 
 function App() {
   const [predictionResult, setPredictionResult] = useState("TWF");
