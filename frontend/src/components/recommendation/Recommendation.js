@@ -5,7 +5,7 @@ import { food_data } from "./FoodRecommendations.js";
 const Recommendation = ({ predictionResult }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  console.log(predictionResult);
+
   const foodData = food_data[predictionResult]["food-items"];
   const herbalTeaData =
     food_data[predictionResult]["herbal-tea-recommendation"];
