@@ -1,5 +1,5 @@
 import React from "react";
-import "./ShareModal.css"; // Create this CSS file for styling the modal
+import "./ShareModal.css";
 
 const ShareModal = ({ onClose, resultType }) => {
   const resultUrl = window.location.href;
@@ -39,9 +39,6 @@ const ShareModal = ({ onClose, resultType }) => {
   return (
     <div className="share-modal">
       <h3>Share Analysis Result</h3>
-      <button onClick={() => navigator.clipboard.writeText(resultUrl)}>
-        Copy Link
-      </button>
       <button onClick={() => handleShare("Facebook")}>Share to Facebook</button>
       <button onClick={() => handleShare("Instagram")}>
         Share to Instagram

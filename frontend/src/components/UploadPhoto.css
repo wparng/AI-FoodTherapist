@@ -1,0 +1,116 @@
+.upload-photo-container {
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.instructions {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.instructions p {
+  font-size: 16px;
+  margin: 0;
+}
+.content {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.photo-preview-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.good-photo,
+.bad-photo {
+  text-align: center;
+}
+.good-photo p,
+.bad-photo p {
+  font-size: 14px;
+}
+.good-photo {
+  color: #01b801;
+}
+.bad-photo {
+  color: #ef1010;
+}
+
+.note {
+  color: #888;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.upload-photo-container .note {
+  font-size: 14px;
+}
+.file-upload {
+  border: 2px dashed #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.file-label {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  background-color: #ffa726;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.image-preview {
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  position: relative;
+}
+
+.uploaded-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.delete-button {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  background-color: #ffffffcc;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 10;
+  width: 36px;
+  color: #fbc02d;
+  font-weight: 900;
+}
+
+.delete-button:hover,
+.delete-button:active {
+  background-color: #ff912c;
+  color: #fef2e9;
+}

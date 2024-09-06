@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+import "./UploadPhoto.css";
 
 const UploadPhoto = ({ setPredictionResult }) => {
   const [image, setImage] = useState(null);
@@ -88,48 +89,68 @@ const UploadPhoto = ({ setPredictionResult }) => {
   };
 
   return (
-    <div className="app">
-      <h1>Upload a Photo of Your Front Tongue</h1>
-      <div className="instructions">
-        <p>Follow the instructions for the best results</p>
-        <img src="/assets/images/tongue.jpg" alt="Tongue" />
-        <p>
-          Position your tongue in the center of the image for the best photo
-        </p>
-        <img src="/assets/images/tongue.jpg" alt="Tongue" />
-      </div>
-      <p className="note">
-        **Please upload photos between 3–9 MB for the best results. <br />
-        **Photo quality affects analysis accuracy. The photo is only used for
-        analysis and not stored.
-      </p>
+    <div className="app upload-photo-container">
+      <h1>Upload a Photo of your Front Tongue</h1>
+      <div className="content">
+        <div className="instructions">
+          <p>Follow the instructions for the best results.</p>
+          <p>
+            Position your tongue in the center of the image for the best photo.
+          </p>
+        </div>
 
-      {image && (
-        <div className="image-preview">
-          <div className="image-container">
-            <img src={image} alt="Uploaded Tongue" className="uploaded-image" />
-            <button className="delete-button" onClick={handleDelete}>
-              X
-            </button>
+        <div className="photo-preview-container">
+          <div className="good-photo">
+            <img src="/assets/images/tongue-goodexp.png" alt="Good Photo" />
+            <p>Good Photo</p>
+          </div>
+          <div className="bad-photo">
+            <img src="/assets/images/tongue-badexp.png" alt="Bad Photo" />
+            <p>Bad Photo</p>
           </div>
         </div>
-      )}
-      {!isUploaded && (
-        <div className="file-upload">
-          <input
-            type="file"
-            id="file-input"
-            onChange={handleFileChange}
-            accept="image/*"
-          />
-          <label htmlFor="file-input" className="file-label">
-            Select file +
-          </label>
-        </div>
-      )}
-      <button className="upload-button" onClick={handleUpload}>
-        Upload
+
+        <p className="note">
+          **Please upload photos between 3–9 MB for the best results.
+          <br />
+          **Photo quality affects analysis accuracy. The photo is only used for
+          analysis and not stored.
+        </p>
+
+        {image && (
+          <div className="image-preview">
+            <div className="image-container">
+              <img
+                src={image}
+                alt="Uploaded Tongue"
+                className="uploaded-image"
+              />
+              <button className="delete-button" onClick={handleDelete}>
+                X
+              </button>
+            </div>
+          </div>
+        )}
+
+        {!isUploaded && (
+          <div className="file-upload">
+            <input
+              type="file"
+              id="file-input"
+              onChange={handleFileChange}
+              accept="image/*"
+            />
+            <label htmlFor="file-input" className="file-label">
+              Upload My Tongue Photo
+            </label>
+          </div>
+        )}
+      </div>
+
+      <button className="get-result-button" onClick={handleUpload}>
+        Get My Result
       </button>
+
       {showModal && (
         <Modal
           heading="Warning"

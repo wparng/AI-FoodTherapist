@@ -1,19 +1,27 @@
 .landing-page {
   font-family: "Noto Sans", sans-serif;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   padding: 2rem;
   background: linear-gradient(to bottom, #fef2e9 100%, #f9e2d2 100%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   height: 100vh;
 }
 
+.landing-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  width: 100%;
+  max-width: 200px;
+}
+
 .content {
   margin-bottom: 2rem;
 }
 
-.landing-page h1 {
+.landing-content h1 {
   font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
   background: linear-gradient(to right, #ff912c, #ffa34e, #f9b16f);
@@ -29,17 +37,20 @@
 }
 
 .upload-info {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  color: #ff912c;
+  font-size: 0.5rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+  width: 60%;
+  position: absolute;
+  left: 5%;
+  bottom: 10px;
+  max-width: 200px;
 }
 
 .content button {
   padding: 1rem 2rem;
   font-size: 1rem;
-  padding: 10px;
-  background: linear-gradient(to right, #ff912c, #ffa34e, #f9b16f);
-  border: none;
   cursor: pointer;
   max-width: 200px;
 }
@@ -50,23 +61,48 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 40%;
+  position: relative;
 }
 
 .laptop-mockup {
-  width: 70%;
-  max-width: 800px;
+  width: 60%;
+  max-width: 600px;
   border-radius: 20px;
   border: #111 2px solid;
 }
 
+.laptop-mockup img {
+  margin: 0;
+}
+.smile {
+  position: absolute;
+  right: 10%;
+  bottom: 0px;
+}
+
+.smile {
+  width: 30%;
+  height: auto;
+  border-radius: 20px;
+}
 @media (max-width: 500px) {
-  .landing-page {
+  .landing-content {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
-  .landing-page h1 {
+  .landing-content h1 {
     text-align: center;
   }
   .mockup {
     display: none;
+  }
+  .logo {
+    margin: 0 auto;
+  }
+  .logo img {
+    max-width: 100%;
+    height: auto;
   }
 }

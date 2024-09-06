@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
+import "./PermissionRequest.css";
 
 const PermissionRequest = () => {
   const [photoAccess, setPhotoAccess] = useState(false);
@@ -20,66 +21,68 @@ const PermissionRequest = () => {
   };
 
   return (
-    <div className="app permission">
-      <h1>Upload a Permission Request:</h1>
-      <h2>Photo Access and Analysis photo of your front tongue</h2>
-      <p>
-        We value your privacy and want to ensure you're fully informed about how
-        your data will be used. To enhance your experience, we request access to
-        your photos for the following purposes:
-      </p>
-      <ul>
-        <li>
-          <strong>Photo Access:</strong> We need permission to access your
-          photos so you can upload and share images within the app.
-        </li>
-        <li>
-          <strong>Photo Analysis:</strong> With your consent, we may analyze
-          your photos to provide personalized recommendations, enhance app
-          features, or improve our services.
-        </li>
-      </ul>
-      <p>
-        Your Privacy Matters: Any photos accessed or analyzed will be handled
-        securely and used only for the purposes outlined above. Your data will
-        never be shared with third parties without your explicit consent.
-      </p>
-      <div className="checkbox-container">
-        <label>
-          <input
-            type="checkbox"
-            checked={photoAccess}
-            onChange={() => setPhotoAccess(!photoAccess)}
+    <>
+      <div className="permission-overlay" />
+      <div className="permission-page">
+        <h1>
+          Upload a Permission Request: Front Tongue Photo for Access and
+          Analysis
+        </h1>
+        <p>
+          We value your privacy. To enhance your experience, we request photo
+          access for:
+        </p>
+        <ul>
+          <li>Uploading and sharing images within the app.</li>
+          <li>
+            Analyzing photos for personalized recommendations and feature
+            improvements.
+          </li>
+        </ul>
+        <p>
+          Your data is secure and will only be used as described. We won’t share
+          it with third parties without your consent.
+        </p>
+        <h2>Please Confirm:</h2>
+        <div className="checkbox-container">
+          <label>
+            <input
+              type="checkbox"
+              checked={photoAccess}
+              onChange={() => setPhotoAccess(!photoAccess)}
+            />
+            I agree to grant access to my photos.
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={photoAnalysis}
+              onChange={() => setPhotoAnalysis(!photoAnalysis)}
+            />
+            I consent to the analysis of my photos as described.
+          </label>
+        </div>
+        <div className="button-container">
+          {isEligibleForNavigation ? (
+            <Link to="/upload-photo">
+              <button className="confirm-button">Confirm</button>
+            </Link>
+          ) : (
+            <button className="confirm-button" onClick={handleConfirm}>
+              Confirm
+            </button>
+          )}
+        </div>
+
+        {showModal && (
+          <Modal
+            heading="Warning"
+            message="Please grant the necessary permissions."
+            onClose={handleCloseModal}
           />
-          I agree to grant access to my photos.
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={photoAnalysis}
-            onChange={() => setPhotoAnalysis(!photoAnalysis)}
-          />
-          I consent to the analysis of my photos as described.
-        </label>
-      </div>
-      <div>
-        {isEligibleForNavigation ? (
-          <Link to="/upload-photo">
-            <button>Confirm</button>
-          </Link>
-        ) : (
-          <button onClick={handleConfirm}>Confirm</button>
         )}
       </div>
-
-      {showModal && (
-        <Modal
-          heading="Warning"
-          message="Please grant the necessary permissions."
-          onClose={handleCloseModal}
-        />
-      )}
-    </div>
+    </>
   );
 };
 
