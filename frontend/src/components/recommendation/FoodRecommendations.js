@@ -1065,7 +1065,7 @@ export const food_data = {
       {
         id: 7,
 
-        image: "assets/FoodImages/YGF/Recipe1_Mung Bean Soup.png",
+        image: "/assets/FoodImages/YGF/Recipe1_Mung Bean Soup.png",
         header: "Mung Bean Soup",
         title:
           "This soup combines the heat-clearing and detoxifying properties of mung beans with the refreshing qualities of traditional Chinese ingredients, making it an ideal choice for summer or for those with a damp-heat constitution.",
@@ -1119,7 +1119,7 @@ export const food_data = {
         id: 8,
         header: "Cucumber Stir-Fry with Egg",
 
-        image: "assets/FoodImages/YGF/Recipe 3_Cucumber Stir-Fry with Egg.png",
+        image: "/assets/FoodImages/YGF/Recipe 3_Cucumber Stir-Fry with Egg.png",
 
         title:
           "Cucumber Stir-Fry with Egg is a simple and refreshing dish, perfect for a light meal in the summer.",
@@ -1164,7 +1164,7 @@ export const food_data = {
       {
         id: 9,
         image:
-          "assets/FoodImages/YGF/Recipe 4_Lotus Root and Black Fungus Cold Dish Salad.png",
+          "/assets/FoodImages/YGF/Recipe 4_Lotus Root and Black Fungus Cold Dish Salad.png",
 
         header: "Lotus Root and Black Fungus Cold Dish Salad",
         title:
@@ -1232,7 +1232,7 @@ export const food_data = {
       {
         id: 10,
         image:
-          "assets/FoodImages/YGF/Recipe 2_Winter Melon and Barley Soup.png",
+          "/assets/FoodImages/YGF/Recipe 2_Winter Melon and Barley Soup.png",
         header: "Winter Melon and Barley Soup",
         title:
           "Winter Melon and Barley Soup combines the cooling and detoxifying properties of winter melon with the diuretic and dampness-removing qualities of barley, making it an excellent choice for those with a damp-heat constitution.",
@@ -1290,7 +1290,7 @@ export const food_data = {
         id: 11,
         header: "Chrysanthemum and Goji Berry Tea",
         image:
-          "assets/FoodImages/YGF/Herbal Tea 1_Chrysanthemum and Goji Berry Tea .png",
+          "/assets/FoodImages/YGF/Herbal Tea 1_Chrysanthemum and Goji Berry Tea .png",
         title:
           "Chrysanthemum and Goji Berry Tea is known for its cooling and detoxifying properties, as well as its ability to support liver health and improve vision.",
         ingredients: [
@@ -1334,7 +1334,7 @@ export const food_data = {
         id: 12,
         header: "Mint and Lotus Leaf Tea",
         image:
-          "assets/FoodImages/YGF/Herbal Tea 2_Mint and Lotus Leaf Tea Recipe .png",
+          "/assets/FoodImages/YGF/Herbal Tea 2_Mint and Lotus Leaf Tea Recipe .png",
         title:
           "Mint and Lotus Leaf Tea is a refreshing beverage known for its cooling and hydrating properties, ideal for hot summer days.",
         ingredients: ["Mint: 5 g", "Lotus Leaf: 10 g", "Water: 500 ml"],

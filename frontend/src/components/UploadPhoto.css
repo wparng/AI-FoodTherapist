@@ -94,7 +94,7 @@ input[type="file"] {
   display: block;
 }
 
-.delete-button {
+.image-container .delete-button {
   position: absolute;
   top: 1px;
   right: 10px;
