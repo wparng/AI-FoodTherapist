@@ -12,7 +12,7 @@ import Result from "./components/Result";
 //ToDo: manage prediction as context
 
 function App() {
-  const [predictionResult, setPredictionResult] = useState(null);
+  const [predictionResult, setPredictionResult] = useState("TWF");
 
   return (
     <Router>

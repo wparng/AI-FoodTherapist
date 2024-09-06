@@ -90,7 +90,7 @@ const FoodDetails = ({ predictionResult }) => {
 
       {itemData.steps && (
         <div className="mb-4">
-          <h3 className="text-lg font-semibold mb-4 mt-8">
+          <h3 className="text-lg font-semibold mb-4 mt-2">
             {" "}
             {/* Spacing below the heading */}
             Steps
