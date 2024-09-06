@@ -81,6 +81,7 @@ const resultsContent = {
 };
 
 const Result = ({ predictionResult }) => {
+  console.log(predictionResult);
   const navigate = useNavigate();
   // const [resultType, setResultType] = useState(null);
   const [loading, setLoading] = useState(false);
