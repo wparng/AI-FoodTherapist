@@ -102,6 +102,7 @@ const resultsContent = {
 };
 
 const Result = ({ predictionResult }) => {
+  console.log(predictionResult);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);

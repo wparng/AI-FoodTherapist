@@ -1,42 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { food_data } from "./FoodRecommendations.js";
 
-const Recommendation = () => {
-  const [foodData, setFoodData] = useState([]);
-  const [herbalTeaData, setHerbalTeaData] = useState([]);
-  const [loading, setLoading] = useState(true);
+const Recommendation = ({ predictionResult }) => {
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const foodData = food_data[predictionResult]["food-items"];
+  const herbalTeaData =
+    food_data[predictionResult]["herbal-tea-recommendation"];
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [foodResponse, herbalTeaResponse] = await Promise.all([
-          fetch("http://localhost:5000/food-items"),
-          fetch("http://localhost:5000/herbal-tea-recommendation"),
-        ]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const [foodResponse, herbalTeaResponse] = await Promise.all([
+  //         fetch("http://localhost:5000/food-items"),
+  //         fetch("http://localhost:5000/herbal-tea-recommendation"),
+  //       ]);
 
-        if (!foodResponse.ok || !herbalTeaResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
+  //       if (!foodResponse.ok || !herbalTeaResponse.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
 
-        const [foodItems, herbalTeas] = await Promise.all([
-          foodResponse.json(),
-          herbalTeaResponse.json(),
-        ]);
+  //       const [foodItems, herbalTeas] = await Promise.all([
+  //         foodResponse.json(),
+  //         herbalTeaResponse.json(),
+  //       ]);
 
-        setFoodData(foodItems);
-        setHerbalTeaData(herbalTeas);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
+  //       setFoodData(foodItems);
+  //       setHerbalTeaData(herbalTeas);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       setError(error);
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const handleBack = () => {
     navigate(-1);
@@ -80,22 +82,24 @@ const Recommendation = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        {foodData.map((food) => (
-          <div
-            key={food.id}
-            className="bg-white rounded-lg shadow-lg cursor-pointer"
-            onClick={() => handleItemClick(food.id, "food")}
-          >
-            <img
-              src={food.image}
-              alt={food.header}
-              className="w-full h-40 object-cover rounded-t-lg"
-            />
-            <div className="mt-2 p-2">
-              <h3 className="text-lg font-semibold">{food.header}</h3>
+        {foodData.map((food, index) => {
+          return (
+            <div
+              key={food.id}
+              className="bg-white rounded-lg shadow-lg cursor-pointer"
+              onClick={() => handleItemClick(index, "food-items")}
+            >
+              <img
+                src={food.image}
+                alt={food.header}
+                className="w-full h-40 object-cover rounded-t-lg"
+              />
+              <div className="mt-2 p-2">
+                <h3 className="text-lg font-semibold">{food.header}</h3>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mb-4 mt-8">
@@ -103,22 +107,26 @@ const Recommendation = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        {herbalTeaData.map((tea) => (
-          <div
-            key={tea.id}
-            className="bg-white rounded-lg shadow-lg cursor-pointer"
-            onClick={() => handleItemClick(tea.id, "tea")}
-          >
-            <img
-              src={tea.image}
-              alt={tea.header}
-              className="w-full h-40 object-cover rounded-t-lg"
-            />
-            <div className="mt-2 p-2">
-              <h3 className="text-lg font-semibold">{tea.header}</h3>
+        {herbalTeaData.map((tea, index) => {
+          return (
+            <div
+              key={tea.id}
+              className="bg-white rounded-lg shadow-lg cursor-pointer"
+              onClick={() =>
+                handleItemClick(index, "herbal-tea-recommendation")
+              }
+            >
+              <img
+                src={tea.image}
+                alt={tea.header}
+                className="w-full h-40 object-cover rounded-t-lg"
+              />
+              <div className="mt-2 p-2">
+                <h3 className="text-lg font-semibold">{tea.header}</h3>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

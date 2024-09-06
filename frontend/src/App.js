@@ -31,7 +31,10 @@ function App() {
             path="/recommendations"
             element={<Recommendation predictionResult={predictionResult} />}
           />
-          <Route path="/food-details/:type/:id" element={<FoodDetails />} />
+          <Route
+            path="/food-details/:type/:id"
+            element={<FoodDetails predictionResult={predictionResult} />}
+          />
         </Routes>
       </div>
     </Router>
