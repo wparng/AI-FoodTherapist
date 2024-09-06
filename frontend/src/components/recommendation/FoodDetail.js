@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "./FoodDetail.css";
 
 import { food_data } from "./FoodRecommendations";
@@ -50,7 +50,7 @@ const FoodDetails = ({ predictionResult }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  if (!itemData) return <p>No data available</p>;
+  // if (!itemData) return <p>No data available</p>;
 
   return (
     <div className="app p-4">
